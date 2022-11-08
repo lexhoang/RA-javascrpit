@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh-1</title>
+    <style>
+        body {
+            background-image: url("https://media.zicxa.com/1193275");
+        }
+
+        .css-btn {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 150px auto;
+        }
+
+        button {
+            width: 400px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.378);
+            color: #fff;
+            border: none;
+            transition: calc(0.6s);
+            margin: 8px
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 60px;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-style: italic;
+            font-size: 50px
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="messageDiv"></h1>
+
+    <div class="css-btn">
+        <button onclick="showAlert()">Click Show Alert!</button>
+        <button onclick="showHTML()">Click Show HTML!</button>
+        <button onclick="showConsole()">Click Show console.log!</button>
+        <button onclick="showdocumentWrite()">Click Show document.write!</button>
+    </div>
+
+</body>
+
+<script>
+    function showAlert() {
+        alert("Hello world on alert!");
+    }
+
+    function showHTML() {
+        document.getElementById("messageDiv").innerHTML = "Hello world!!!"
+    }
+
+    function showConsole() {
+        console.log("Hello world on alert!");
+    }
+
+    function showdocumentWrite() {
+        document.write("Hello world on alert!");
+    }
+</script>
+
+</html>
