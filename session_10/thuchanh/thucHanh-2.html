@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh-2</title>
+    <style>
+        button {
+            width: 200px;
+            height: 50px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="areaReactangle()">CLICK Để Tính Diện Tích Hình Chữ Nhật</button>
+</body>
+
+<script>
+    function areaReactangle() {
+        let width = parseInt(prompt("Nhập số chiều rộng"));
+        let height = parseInt(prompt("Nhập số chiều dài"));
+        let area = width * height;
+
+        document.write("Chiều rộng là: " + width);
+        document.write("<br/>");
+        document.write("Chiều dài là: " + height);
+        document.write("<br/>");
+        document.write("Diện tích là hình chữ nhật là: " + area);
+    }
+</script>
+
+</html>
