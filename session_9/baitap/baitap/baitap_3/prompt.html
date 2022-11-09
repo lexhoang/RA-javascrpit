@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("https://img.freepik.com/premium-photo/fantasy-abandoned-city-night_141465-12.jpg?w=2000");
+            color: #fff;
+        }
+
+        header {
+            width: 100%;
+            color: rgb(255, 255, 255);
+            padding: 8px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            margin: 40px auto;
+            width: 500px;
+        }
+
+        article {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        article>div {
+            margin: 40px;
+        }
+
+        article>div h2 {
+            margin-bottom: 24px;
+        }
+
+        article>div h3 {
+            margin: 12px 8px
+        }
+
+
+
+        button {
+            width: 150px;
+            height: 32px;
+            border: none;
+            transition: calc(0.5s);
+            background-color: rgba(0, 0, 0, 0.349);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 44px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sơ Yếu Lý Lịch</h1>
+        </header>
+
+        <section>
+            <article>
+                <div class="info-content">
+                    <h2>Thông tin cá nhân</h2>
+                    <div class="info-input">
+                        <h3>Họ và tên: <span id="fullName"></span> </h3>
+                        <h3>Tuổi: <span id="age"></span> </h3>
+                        <h3>Giới tính: <span id="gender"></span> </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="myInfo()">
+                        Nhập
+                    </button>
+                </div>
+            </article>
+            <hr>
+
+            <article>
+                <div class="educate-content">
+                    <h2>Trình độ học vấn</h2>
+                    <div class="educate-input">
+                        <h3>Văn hóa: <span id="culture"></span> </h3>
+                        <h3>Học vấn: <span id="education"></span> </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="myEducate()">
+                        Nhập
+                    </button>
+                </div>
+            </article>
+            <hr>
+
+            <article>
+                <div class="job-content">
+                    <h2>Nghề nghiệp</h2>
+                    <div class="job-input">
+                        <h3>Công việc 1: <span id="job1"></span> </h3>
+                        <h3>Công việc 2: <span id="job2"></span> </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="myJob()">
+                        Nhập
+                    </button>
+                </div>
+            </article>
+        </section>
+    </div>
+</body>
+
+
+<script>
+    function myInfo() {
+        let name = prompt("Nhập tên của bạn");
+        let age = prompt("Nhập tuổi của bạn");
+        let gender = prompt("Nhập giới tính của bạn");
+
+        document.getElementById("fullName").innerHTML = name;
+        document.getElementById("age").innerHTML = age;
+        document.getElementById("gender").innerHTML = gender;
+    }
+
+    function myEducate() {
+        let culture = prompt("Văn hóa của bạn");
+        let education = prompt("Nhập trình độ học vấn của bạn");
+
+        document.getElementById("culture").innerHTML = culture;
+        document.getElementById("education").innerHTML = education;
+    }
+
+    function myJob() {
+        let job1 = prompt("Công việc 1 của bạn");
+        let job2 = prompt("Công việc 2 của bạn");
+
+        document.getElementById("job1").innerHTML = job1;
+        document.getElementById("job2").innerHTML = job2;
+    }
+</script>
+
+</html>
