@@ -94,12 +94,16 @@
 
         if (from == "VN" && to == "USD") {
             result = amount * 23000;
-            document.getElementById("result").innerHTML = "Kết quả chuyển đổi là: " + result;
+            document.getElementById("result").innerHTML = "Giá trị quy đổi: " + result + " USD";
         }
 
         else if (from == "USD" && to == "VN") {
             result = amount / 23000;
-            document.getElementById("result").innerHTML = "Kết quả chuyển đổi là: " + result;
+            document.getElementById("result").innerHTML = "Giá trị quy đổi: " + result + " VNĐ";
+        }
+
+        else {
+            document.getElementById("result").innerHTML = "Hãy chọn loại tiền cần chuyển";
         }
     }
 </script>
