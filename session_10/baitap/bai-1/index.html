@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background-image: url("https://img.freepik.com/premium-photo/fantasy-abandoned-city-night_141465-12.jpg?w=2000"); */
+            /* color: #fff; */
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin: 80px auto;
+        }
+
+        div {
+            padding: 0 20px;
+            margin-bottom: 40px;
+            width: 33.33%;
+            margin: 0 auto;
+            text-align: center;
+            border: 3px solid #fff;
+        }
+
+        button {
+            margin-top: 24px;
+            width: 150px;
+            height: 40px;
+        }
+
+        h2 {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bai_1">
+            <h2>Tính điểm trung bình 3 môn</h2>
+            <p>Điểm môn vật lý: </p>
+            <input type="number" name="" id="physical" placeholder="Nhập điểm"><br><br>
+
+            <p>Điểm môn hóa học: </p>
+            <input type="number" name="" id="chemistry" placeholder="Nhập điểm"><br><br>
+
+            <p>Điểm môn sinh: </p>
+            <input type="number" name="" id="biology" placeholder="Nhập điểm"><br><br>
+
+            <button onclick="onAverage()">Tính Điểm Trung Bình</button>
+            <p>Điểm trung bình 3 môn: <span id="average"></span> </p>
+        </div>
+
+        <div class="bai_2">
+            <h2>Chuyển đổi nhiệt độ</h2>
+            <p>Độ C: </p>
+            <input type="number" name="" id="celsius" placeholder="Nhập độ C"><br>
+
+            <button onclick="onChangeTemperature()">Chuyển Sang Độ F</button>
+            <p>Độ F: <span id="fahrenheit"></span> </p>
+        </div>
+
+        <div class="bai_3">
+            <h2>Tính diện tích hình tròn</h2>
+            <p>Bán kính: </p>
+            <input type="number" id="radius" placeholder="Nhập bán kính" /><br>
+
+            <button onclick="onAreaCircle()">Tính Diện Tích Hình Tròn</button>
+            <p id="resultArea"></p>
+
+            <button onclick="onPerimeter()">Tính Chu Vi Hình Tròn</button>
+            <p id="resultPerimeter"></p>
+        </div>
+    </div>
+</body>
+
+<script src="index.js"></script>
+
+</html>
