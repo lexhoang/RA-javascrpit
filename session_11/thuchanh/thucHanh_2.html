@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 10px 10px 15px rgb(249, 210, 210);
+        }
+
+        h2 {
+            margin-top: 20px
+        }
+
+        input {
+            margin-top: 50px;
+            width: 300px;
+            height: 30px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 150px;
+            height: 50px;
+            background-color: rgb(0, 255, 13);
+            font-weight: bold;
+            transition: calc(0.4s)
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+            height: 40px;
+            border: 3px solid red;
+            color: #fff
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>“What is the “official” name of JavaScript?”.
+        </h2>
+        <input type="text" id="input" /><br>
+        <button onclick="inputAnswer()">Click</button>
+        <h3 id="result"></h3>
+    </div>
+</body>
+
+<script>
+
+    function inputAnswer() {
+        let input = document.getElementById("input").value;
+        let result = document.getElementById("result");
+
+        if (input === "ECMAScript") {
+            result.innerHTML = "Right";
+        } else {
+            result.innerHTML = "Didn’t know? ECMAScript!"
+        }
+    }
+</script>
+
+</html>
