@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://f88.vn/uploads/images/Tindungnganhang/20220607144416355-ngan-hang-so-04.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: #fff;
+            margin: 80px auto;
+            text-align: center;
+        }
+
+
+
+        button {
+            width: 120px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.411);
+            color: #fff;
+            transition: calc(0.6s);
+            margin-top: 50px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 60px;
+            border: 2px solid #fff
+        }
+
+        input {
+            height: 30px;
+            text-align: center;
+        }
+
+        select {
+            width: 100px;
+            height: 30px;
+            margin: 0 12px;
+        }
+
+        #result {
+            text-align: center;
+            color: #fff;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Amount</h2>
+            <input type="number" id="amount" placeholder="Nhập số tiền" />
+        </div>
+
+        <div>
+            <h2>From Currency</h2>
+
+            <select name="" id="from">
+                <option value="VN">VietNam</option>
+                <option value="USD">USD</option>
+            </select>
+
+            <select name="" id="to">
+                <option value="USD">USD</option>
+                <option value="VN">VietNam</option>
+            </select>
+        </div>
+
+        <button onclick="onConvertMoneyClick()">Convert</button>
+    </div>
+    <p id="result"></p>
+</body>
+
+<script>
+    function onConvertMoneyClick() {
+        let amount = parseInt(document.getElementById("amount").value);
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+
+        if (from == "VN" && to == "USD") {
+            result = amount * 23000;
+            document.getElementById("result").innerHTML = "Kết quả chuyển đổi là: " + result;
+        }
+
+        else if (from == "USD" && to == "VN") {
+            result = amount / 23000;
+            document.getElementById("result").innerHTML = "Kết quả chuyển đổi là: " + result;
+        }
+    }
+</script>
+
+</html>
