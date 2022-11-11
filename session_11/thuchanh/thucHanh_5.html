@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button {
+            width: 200px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <button onclick="onBai1Click()">Click bài 1</button><br>
+    <button onclick="onBai2Click()">Click bài 2</button>
 </body>
+
+<script>
+    function onBai1Click() {
+        let x = parseInt(prompt('Nhập số x'));
+        let y = parseInt(prompt('Nhập số y'));
+        let result;
+        result = ((x + y) < 4) ? 'Below' : 'Over';
+        alert(result);
+    }
+
+    function onBai2Click() {
+        let login = prompt('Nhập');
+        let message;
+        message = (login == 'Employee') ? 'Hello' :
+            (login == 'Director') ? "Greeting" :
+                (login == '') ? "No login" :
+                    ''
+        alert(message);
+    }
+</script>
+
 </html>
