@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        #calculation {
+            margin: 50px auto;
+            width: 326px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 6px solid rgb(236, 89, 170);
+        }
+
+
+        #result {
+            width: 320px;
+            height: 80px;
+            background-color: rgb(250, 233, 245);
+            font-size: 40px;
+            color: rgb(66, 60, 60);
+            border: 12px solid rgb(236, 89, 170);
+        }
+
+        #board {
+            width: 320px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 80px;
+            height: 60px;
+            background-color: rgb(248, 192, 220);
+            border: 0.1px solid white;
+        }
+
+        .item:hover {
+            background-color: aquamarine;
+        }
+
+        .item1 {
+            height: 60px;
+            background-color: rgb(247, 122, 184)
+        }
+
+        .item20 {
+            background-color: rgb(135, 212, 250);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .item4,
+        .item8,
+        .item12,
+        .item16 {
+            background-color: rgb(202, 202, 211);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="calculation">
+
+        <div class="input-result">
+            <input id="result" placeholder="0" />
+        </div>
+
+        <div id="board">
+            <input type="button" class="item item1" value="AC" onclick="AC()" />
+            <input type="button" class="item item3" value="%" onclick="set_num(value)" />
+            <input type="button" class="item item3" value="%" onclick="set_num(value)" />
+            <input type="button" class="item item4" value="*" onclick="set_num(value)" />
+            <input type="button" class="item item5" value="7" onclick="set_num(value)" />
+            <input type="button" class="item item6" value="8" onclick="set_num(value)" />
+            <input type="button" class="item item7" value="9" onclick="set_num(value)" />
+            <input type="button" class="item item8" value="/" onclick="set_num(value)" />
+            <input type="button" class="item item9" value="4" onclick="set_num(value)" />
+            <input type="button" class="item item10" value="5" onclick="set_num(value)" />
+            <input type="button" class="item item11" value="6" onclick="set_num(value)" />
+            <input type="button" class="item item12" value="-" onclick="set_num(value)" />
+            <input type="button" class="item item13" value="1" onclick="set_num(value)" />
+            <input type="button" class="item item14" value="2" onclick="set_num(value)" />
+            <input type="button" class="item item15" value="3" onclick="set_num(value)" />
+            <input type="button" class="item item16" value="+" onclick="set_num(value)" />
+            <input type="button" class="item item17" value="0" onclick="set_num(value)" />
+            <input type="button" class="item item18" value="00" onclick="set_num(value)" />
+            <input type="button" class="item item19" value="." onclick="set_num(value)" />
+            <input type="button" class="item item20" value="=" onclick="ketqua()" />
+        </div>
+    </div>
+
+
+    <script>
+        var x = "";
+
+        function set_num(num) {
+            x += num; // x lấy giá trị của num
+            document.getElementById("result").value = x;
+        }
+
+        function AC() {
+            x = " ";
+            document.getElementById("result").value = x;
+        }
+
+        function ketqua() {
+            document.getElementById("result").value = eval(document.getElementById("result").value);
+        }
+    </script>
+
+</body>
+
+</html>
