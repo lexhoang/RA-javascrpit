@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        h2 {
+            color: rgb(255, 0, 111)
+        }
+
+        button {
+            width: 120px;
+            height: 30px;
+            border: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #yes {
+            background-color: red;
+            color: #fff;
+        }
+
+        #no {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Do you Love me?</h1>
+        <button style="position: absolute; left: 10px; top: 100px;" id="yes" onclick="onYes()">Yes</button>
+        <button style="position: absolute; left: 200px; top: 100px;" id="no" onmouseover="onNo()">No</button>
+        <h2 id="result"></h2>
+    </div>
+</body>
+
+<script>
+    function onYes() {
+        document.getElementById("result").innerHTML = "I Love You Too"
+    }
+
+    function onNo() {
+        document.getElementById("no").style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
+        document.getElementById("no").style.top = Math.floor(Math.random() * window.innerHeight) + 'px'
+    }
+</script>
+
+</html>
