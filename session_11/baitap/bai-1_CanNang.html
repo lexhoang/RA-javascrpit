@@ -15,26 +15,26 @@
 </head>
 
 <body>
-    <label for="">Cân nặng</label> <input type="number" id="width" placeholder="Nhập cân nặng" /><br><br>
-    <label for="">Chiều cao</label> <input type="number" id="height" placeholder="Nhập chiều cao" /><br><br>
-    <button onclick="clickBMI()">Xem chỉ số của bạn</button>
+    <label>Cân nặng</label> <input type="number" id="width" placeholder="Nhập cân nặng" /><br><br>
+    <label>Chiều cao</label> <input type="number" id="height" placeholder="Nhập chiều cao" /><br><br>
+    <button onclick="onClick()">Xem chỉ số của bạn</button>
     <h3 id="result"></h3>
 </body>
 
 <script>
-    function clickBMI() {
-        let width = parseInt(document.getElementById("width").value);
-        let height = parseInt(document.getElementById("height").value);
+    function onClick() {
+        let width = document.getElementById("width").value;
+        let height = document.getElementById("height").value;
 
         let BMI = (width / (height * height));
 
         if (BMI < 18) {
             document.getElementById("result").innerHTML = "Bạn đang gầy, hãy bổ sung dinh dưỡng"
         }
-        else if (BMI < 25) {
+        else if (BMI >= 18 && BMI < 25) {
             document.getElementById("result").innerHTML = "Bạn đang rất khỏe mạnh, hãy giữ chỉ số như này nha"
         }
-        else if (BMI < 30) {
+        else if (BMI >= 25 && BMI < 30) {
             document.getElementById("result").innerHTML = "Bạn đang thừa cân, hãy hạn chế ăn đồ nhiều dầu mỡ"
         }
         else {
