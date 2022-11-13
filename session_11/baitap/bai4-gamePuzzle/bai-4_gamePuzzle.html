@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <img id="anh1" src="images/cho1.jpg" height="100" width="600" onclick="changeImage1()"
+        style="box-shadow: blue 4px 4px 9px;"><br>
+    <img id="anh2" src="images/khi1.jpg" height="79" width="600" onclick="changeImage2()"
+        style="box-shadow: blue 4px 4px 9px;"><br>
+    <img id="anh3" src="images/meo1.jpg" height="79" width="600" onclick="changeImage3()"
+        style="box-shadow: blue 4px 4px 9px;">
+
+    <script>
+        let count1 = 0;
+        let count2 = 1;
+        let count3 = 2;
+        let img1 = document.getElementById('anh1');
+        let img2 = document.getElementById('anh2');
+        let img3 = document.getElementById('anh3');
+
+        function changeImage1() {
+            count1++;
+            if (count1 == 1) {
+                img1.src = 'images/cho1.jpg';
+            } else if (count1 == 2) {
+                img1.src = 'images/khi1.jpg';
+            } else {
+                count1 = 0;
+                img1.src = 'images/meo1.jpg'
+            }
+            checkShadow()
+        }
+
+        function changeImage2() {
+            count2++;
+            if (count2 == 1) {
+                img2.src = 'images/cho2.jpg';
+            } else if (count2 == 2) {
+                img2.src = 'images/khi2.jpg';
+            } else {
+                count2 = 0;
+                img2.src = 'images/meo2.jpg'
+            }
+            checkShadow()
+        }
+
+        function changeImage3() {
+            count3++;
+            if (count3 == 1) {
+                img3.src = 'images/cho3.jpg';
+            } else if (count3 == 2) {
+                img3.src = 'images/khi3.jpg';
+            } else {
+                count3 = 0;
+                img3.src = 'images/meo3.jpg'
+            }
+            checkShadow()
+        }
+
+        function checkShadow() {
+            console.log('count1 = ', count1)
+            console.log('count2 = ', count2)
+            console.log('count3 = ', count3)
+            if (count1 == count2 && count2 == count3) {
+                img1.style.boxShadow = 'red 10px 10px 15px';
+                img2.style.boxShadow = 'red 10px 10px 15px';
+                img3.style.boxShadow = 'red 10px 10px 15px';
+            } else {
+                img1.style.boxShadow = 'blue 10px 10px 15px';
+                img2.style.boxShadow = 'blue 10px 10px 15px';
+                img3.style.boxShadow = 'blue 10px 10px 15px';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
