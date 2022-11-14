@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh1</title>
+</head>
+
+<body>
+    <h2>Bài 1</h2>
+    <p id="bai1"></p>
+    <h2>Bài 2</h2>
+    <button onclick="onSum()">Bài 2 click</button>
+</body>
+
+<script>
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+        text += "The number is " + i + "<br/>";
+    }
+    document.getElementById("bai1").innerHTML = text;
+
+    function onSum() {
+        let num = parseInt(prompt("Nhập số"));
+        let total = 0;
+        for (let i = 0; i < num; i++) {
+            total += i;
+        }
+        alert("Tổng dãy số bắt đầu từ 0 đến " + num + " là: " + total);
+    }
+</script>
+
+</html>
