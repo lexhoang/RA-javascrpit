@@ -12,12 +12,17 @@
 </head>
 
 <body>
-    <img id="anh1" src="images/cho1.jpg" height="100" width="600" onclick="changeImage1()"
-        style="box-shadow: blue 4px 4px 9px;"><br>
-    <img id="anh2" src="images/khi1.jpg" height="79" width="600" onclick="changeImage2()"
-        style="box-shadow: blue 4px 4px 9px;"><br>
-    <img id="anh3" src="images/meo1.jpg" height="79" width="600" onclick="changeImage3()"
-        style="box-shadow: blue 4px 4px 9px;">
+    <button onclick="changeImage1()">
+        <img id="anh1" src="images/cho1.jpg" height="100" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+    </button>
+    <br>
+    <button onclick="changeImage2()">
+        <img id="anh2" src="images/khi1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+    </button>
+    <br>
+    <button onclick="changeImage3()">
+        <img id="anh3" src="images/meo1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+    </button>
 
     <script>
         let count1 = 0;
@@ -71,13 +76,13 @@
             console.log('count2 = ', count2)
             console.log('count3 = ', count3)
             if (count1 == count2 && count2 == count3) {
-                img1.style.boxShadow = 'red 10px 10px 15px';
-                img2.style.boxShadow = 'red 10px 10px 15px';
-                img3.style.boxShadow = 'red 10px 10px 15px';
+                img1.style.boxShadow = '5px 5px 25px 8px red';
+                img2.style.boxShadow = '5px 5px 25px 8px red';
+                img3.style.boxShadow = '5px 5px 25px 8px red';
             } else {
-                img1.style.boxShadow = 'blue 10px 10px 15px';
-                img2.style.boxShadow = 'blue 10px 10px 15px';
-                img3.style.boxShadow = 'blue 10px 10px 15px';
+                img1.style.boxShadow = '5px 5px 25px 8px blue';
+                img2.style.boxShadow = '5px 5px 25px 8px blue';
+                img3.style.boxShadow = '5px 5px 25px 8px blue';
             }
         }
     </script>
