@@ -19,6 +19,7 @@
     <label>Fast</label> <input type="range" id="fast" min="0" max="2" onclick="changeFast()"><br>
     <label>Cheap</label> <input type="range" id="cheap" min="0" max="2" onclick="changeCheap()">
 </body>
+
 <script>
     let good = false;
     let fast = false;
@@ -35,8 +36,8 @@
         } else {
             document.getElementById("good").value = 0;
         }
-        console.log("good = ", good);
     }
+
 
     function changeFast() {
         fast = !fast;
@@ -49,8 +50,8 @@
         } else {
             document.getElementById("fast").value = 0;
         }
-        console.log("fast = ", fast);
     }
+
 
     function changeCheap() {
         cheap = !cheap;
@@ -63,7 +64,6 @@
         } else {
             document.getElementById("cheap").value = 0;
         }
-        console.log("cheap = ", cheap);
     }
 </script>
 

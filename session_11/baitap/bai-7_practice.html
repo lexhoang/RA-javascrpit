@@ -1,12 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>luyentap-if_else</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div>
+            <h2>Bài 1: Kiểm tra số A chia hết cho số B?</h2>
+            <button onclick="onDivisible()">Bài 1</button>
+        </div>
+
+        <div>
+            <h2>Bài 2: Kiểm tra đủ tuổi vào lớp 10?</h2>
+            <button onclick="onHighSchoolAge()">Bài 2</button>
+        </div>
+
+        <div>
+            <h2>Bài 3: Kiểm tra số lớn hay nhỏ hơn 0?</h2>
+            <button onclick="onGreaterOrLessthan()">Bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4: Kiểm tra số lớn nhất trong 3 số?</h2>
+            <button onclick="onComparison()">Bài 4</button>
+        </div>
+
+        <div>
+            <h2>Bài 5: Xếp hạng học lực?</h2>
+            <button onclick="onStudentAssessment()">Bài 5</button>
+        </div>
+
+        <div>
+            <h2>Bài 6: Tính hoa hồng?</h2>
+            <button onclick="onCommission()">Bài 6</button>
+        </div>
+    </div>
 </body>
+<script>
+    function onDivisible() {
+        let number_1 = parseInt(prompt("Nhập số thứ nhất"));
+        let number_2 = parseInt(prompt("Nhập số thứ hai"));
+        if (number_1 % number_2 == 0) {
+            alert("Số thứ nhất chia hết cho số thứ hai");
+        }
+        else {
+            alert("Số thứ nhất không chia hết cho số thứ hai");
+        }
+    }
+
+    function onHighSchoolAge() {
+        let age = parseInt(prompt("Nhập tuổi"));
+        if (age < 15) {
+            alert("Không đủ điều kiện vào học lớp 10")
+        }
+        else {
+            alert("Có thể vào học lớp 10")
+        }
+    }
+
+    function onGreaterOrLessthan() {
+        let number = parseInt(prompt("Nhập số nguyên bất kỳ"));
+        if (number > 0) {
+            alert("Số nguyên dương");
+        }
+        else {
+            alert("Số nguyên âm");
+        }
+    }
+
+    function onComparison() {
+        let x = parseInt(prompt("Nhập số nguyên thứ nhất"));
+        let y = parseInt(prompt("Nhập số nguyên thứ hai"));
+        let z = parseInt(prompt("Nhập số nguyên thứ ba"));
+
+        if (x > y) {
+            if (x > z) {
+                alert("Số lớn nhất trong 3 số là: " + x);
+            } else {
+                alert("Số lớn nhất trong 3 số là: " + z);
+            }
+        } else {
+            if (y > z) {
+                alert("Số lớn nhất trong 3 số là: " + y);
+            } else {
+                alert("Số lớn nhất trong 3 số là: " + z);
+            }
+        }
+    }
+
+    function onStudentAssessment() {
+        let shortTest = parseInt(prompt("Nhập điểm kiểm tra 15 phút"));
+        let midTest = parseInt(prompt("Nhập điểm kiểm tra giữa kỳ"));
+        let finalTest = parseInt(prompt("Nhập điểm kiểm tra cuối kỳ"));
+
+        let assessment = (shortTest + midTest * 2 + finalTest * 3) / 6;
+        if (assessment < 3) {
+            alert("Đúp");
+        }
+        else if (assessment < 6) {
+            alert("Trung bình")
+        }
+        else if (assessment < 8) {
+            alert("Khá")
+        }
+        else {
+            alert("Giỏi")
+        }
+    }
+
+    function onCommission() {
+        let turnOver = parseInt(prompt("Nhập doanh số"));
+        if (turnOver < 1000000) {
+            let commission = turnOver * (1 / 100);
+            alert("Tiền hoa hồng nhận được: " + commission)
+        }
+        if (turnOver >= 1000000 && turnOver < 10000000) {
+            let commission = turnOver * (5 / 100);
+            alert("Tiền hoa hồng nhận được: " + commission)
+        }
+        if (turnOver >= 10000000) {
+            let commission = turnOver * (10 / 100);
+            alert("Tiền hoa hồng nhận được: " + commission)
+        }
+    }
+
+</script>
+
 </html>

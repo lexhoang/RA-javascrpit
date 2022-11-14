@@ -7,21 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
     </style>
 </head>
 
 <body>
     <button onclick="changeImage1()">
-        <img id="anh1" src="images/cho1.jpg" height="100" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+        <img id="anh1" src="images/cho1.jpg" height="100" width="600" style="box-shadow: 5px 5px 25px 8px red;">
     </button>
     <br>
     <button onclick="changeImage2()">
-        <img id="anh2" src="images/khi1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+        <img id="anh2" src="images/khi1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px red;">
     </button>
     <br>
     <button onclick="changeImage3()">
-        <img id="anh3" src="images/meo1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px blue;">
+        <img id="anh3" src="images/meo1.jpg" height="79" width="600" style="box-shadow: 5px 5px 25px 8px red;">
     </button>
 
     <script>
@@ -76,13 +75,13 @@
             console.log('count2 = ', count2)
             console.log('count3 = ', count3)
             if (count1 == count2 && count2 == count3) {
+                img1.style.boxShadow = '5px 5px 25px 8px rgb(0, 255, 0)';
+                img2.style.boxShadow = '5px 5px 25px 8px rgb(0, 255, 0)';
+                img3.style.boxShadow = '5px 5px 25px 8px rgb(0, 255, 0)';
+            } else {
                 img1.style.boxShadow = '5px 5px 25px 8px red';
                 img2.style.boxShadow = '5px 5px 25px 8px red';
                 img3.style.boxShadow = '5px 5px 25px 8px red';
-            } else {
-                img1.style.boxShadow = '5px 5px 25px 8px blue';
-                img2.style.boxShadow = '5px 5px 25px 8px blue';
-                img3.style.boxShadow = '5px 5px 25px 8px blue';
             }
         }
     </script>
