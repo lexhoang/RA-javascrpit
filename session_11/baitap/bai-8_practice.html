@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>bai8</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Bài 1: Chuyển độ C sang độ F</h2>
+            <button onclick="onCChangeF()">Bài 1</button>
+        </div>
+
+        <div>
+            <h2>Bài 2: Chuyển Meet sang độ Feet</h2>
+            <button onclick="onMeetChangeFeet()">Bài 2</button>
+        </div>
+
+        <div>
+            <h2>Bài 3: Diện tích hình vuông</h2>
+            <button onclick="onAreaRound()">Bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4: Diện tích hình chữ nhật</h2>
+            <button onclick="onAreaRectangle()">Bài 4</button>
+        </div>
+
+        <div>
+            <h2>Bài 5: Diện tích tam giác vuông</h2>
+            <button onclick="onAreaTriangle()">Bài 5</button>
+        </div>
+
+        <div>
+            <h2>Bài 6: Giải phương trình bậc 1</h2>
+            <button onclick="onEquation1()">Bài 6</button>
+        </div>
+    </div>
+</body>
+<script>
+    function onCChangeF() {
+        let C = parseInt(prompt("Nhập độ C"));
+        let F = C * 9 / 5 + 32;
+        alert(F);
+    }
+
+    function onMeetChangeFeet() {
+        let meet = parseInt(prompt("Nhập meet"));
+        let feet = meet * 3.2808;
+        alert(feet);
+    }
+
+    function onAreaRound() {
+        let a = parseInt(prompt("Nhập chiều dài cạnh"));
+        let area = a * a;
+        alert(area);
+    }
+
+    function onAreaRectangle() {
+        let a = parseInt(prompt("Nhập chiều dài"));
+        let b = parseInt(prompt("Nhập chiều rộng"));
+        let area = a * b;
+        alert(area);
+    }
+
+    function onAreaTriangle() {
+        let a = parseInt(prompt("Nhập cạnh kề a"));
+        let b = parseInt(prompt("Nhập cạnh kề b"));
+        let area = a * b / 2
+        alert(area);
+    }
+
+    function onEquation1() {
+        let a = parseInt(prompt("Nhập số a"));
+        let b = parseInt(prompt("Nhập số b"));
+        if (a !== 0) {
+            let x = -b / a;
+            alert(x);
+        } else {
+            if (b != 0) {
+                alert("Vô nghiệm");
+            }
+            else {
+                alert("Vô số nghiệm");
+            }
+        }
+
+    }
+</script>
+
+</html>
