@@ -74,6 +74,11 @@
             <h2>Bài 6: Giải phương trình bậc 1</h2>
             <button onclick="onEquation1()">Bài 6</button>
         </div>
+
+        <div>
+            <h2>Bài 7: Giải phương trình bậc 2</h2>
+            <button onclick="onEquation2()">Bài 7</button>
+        </div>
     </div>
 </body>
 <script>
@@ -122,6 +127,31 @@
             else {
                 alert("Vô số nghiệm");
             }
+        }
+
+    }
+
+    function onEquation2() {
+        let a = parseInt(prompt("Nhập số a"));
+        let b = parseInt(prompt("Nhập số b"));
+        let c = parseInt(prompt("Nhập số c"));
+        let delta = b * b - 4 * a * c;
+
+        if (a !== 0) {
+            if (delta < 0) {
+                alert("Vô nghiệm");
+            }
+            else if (delta == 0) {
+                let x = -b / (2 * a);
+                alert(x);
+            }
+            else if (delta > 0) {
+                let x1 = (-b - Math.sqrt(delta)) / (2 * a);
+                let x2 = (-b + Math.sqrt(delta)) / (2 * a);
+                alert("Nghiệm 1 là: " + x1 + " Nghiệm 2 là: " + x2)
+            }
+        } else {
+            alert("Ko phải chương trình bậc 2")
         }
 
     }
