@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh2</title>
+</head>
+
+<body>
+    <h2>Vòng lặp For</h2>
+    <p id="for"></p>
+
+    <h2>Vòng lặp While</h2>
+    <p id="while"></p>
+</body>
+<script>
+    function onFor() {
+        let myTable;
+        myTable = '<table border="1" cellspacing="0" cellpadding="10">'
+        for (let i = 1; i <= 10; i++) {
+            myTable += '<tr>';
+            for (let j = 1; j <= 10; j++) {
+                myTable += '<td>' + i * j + '</td>';
+            }
+            myTable += '</tr>'
+        }
+        myTable += '</table>';
+        document.getElementById("for").innerHTML = myTable;
+    }
+    onFor();
+
+    function onWhile() {
+        let myTable;
+        myTable = '<table border="1" cellspacing="0" cellpadding="10">'
+        i = j = 1;
+        while (i <= 10) {
+            myTable += '<tr>';
+            while (j <= 10) {
+                myTable += '<td>' + i * j + '</td>';
+                j++
+            }
+            myTable += '</tr>'
+            j = 1;
+            i++;
+        }
+        myTable += '</table>';
+        document.getElementById("while").innerHTML = myTable;
+    }
+    onWhile();
+</script>
+
+</html>
