@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh3</title>
+</head>
+
+<body>
+    <h2>Bài 1</h2>
+    <button onclick="bai1()">Click bài 1</button>
+
+    <h2>Bài 2</h2>
+    <button onclick="bai2()">Click bài 2</button>
+    <p id="resultBai2"></p>
+</body>
+
+<script>
+    function bai1() {
+        let num = parseInt(prompt("Nhập số"));
+        let total = 0;
+        while (num != -1) {
+            num = parseInt(prompt("Nhập số"));
+            total += num;
+            alert(total);
+        }
+    }
+
+    function bai2() {
+        let i = 1;
+        while (i < 100) {
+            document.write("<hr width = " + i + "%>");
+            i++;
+        }
+    }
+</script>
+
+</html>
