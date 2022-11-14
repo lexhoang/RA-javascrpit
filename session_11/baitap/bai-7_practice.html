@@ -74,6 +74,11 @@
             <h2>Bài 6: Tính hoa hồng?</h2>
             <button onclick="onCommission()">Bài 6</button>
         </div>
+
+        <div>
+            <h2>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho?</h2>
+            <button onclick="onMobileTax()">Bài 7</button>
+        </div>
     </div>
 </body>
 <script>
@@ -164,6 +169,33 @@
         }
     }
 
+    function onMobileTax() {
+        let time = parseInt(prompt("Nhập thời gian sử dụng"));
+        let prices;
+        let result;
+        if (time > 0 && time <= 50) {
+            prices = 600;
+            result = time * prices;
+            if (result < 25000) {
+                alert("25000")
+            } else {
+                alert(result);
+            }
+        }
+        else if (time > 50 && time <= 200) {
+            prices = 400;
+            result = (50 * 600) + (time - 50) * prices;
+            alert(result);
+        }
+        else if (time > 200) {
+            prices = 200;
+            result = (50 * 600) + (150 * 400) + (time - 200) * prices;
+            alert(result);
+        }
+        else {
+            alert("25000");
+        }
+    }
 </script>
 
 </html>
