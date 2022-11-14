@@ -79,6 +79,16 @@
             <h2>Bài 7: Giải phương trình bậc 2</h2>
             <button onclick="onEquation2()">Bài 7</button>
         </div>
+
+        <div>
+            <h2>Bài 8: Kiểm tra tuổi?</h2>
+            <button onclick="onAge()">Bài 8</button>
+        </div>
+
+        <div>
+            <h2>Bài 8: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác?</h2>
+            <button onclick="onTriangleEdge()">Bài 8</button>
+        </div>
     </div>
 </body>
 <script>
@@ -128,7 +138,6 @@
                 alert("Vô số nghiệm");
             }
         }
-
     }
 
     function onEquation2() {
@@ -155,6 +164,34 @@
         }
 
     }
+
+    function onAge() {
+        let age = parseInt(prompt("Nhập tuổi"));
+        if (age > 0 && age < 120) {
+            alert("Tuổi của bạn là: " + age)
+        }
+        else {
+            alert("Tuổi bạn nhập không tồn tại")
+        }
+    }
+
+    function onTriangleEdge() {
+        let a = parseInt(prompt("Nhập cạnh a"));
+        let b = parseInt(prompt("Nhập cạnh b"));
+        let c = parseInt(prompt("Nhập cạnh c"));
+
+        if (a > 0 && b > 0 && c > 0) {
+            if (a + b > c) {
+                if (b + c > a) {
+                    if (a + c > b) {
+                        alert("Đây là các cạnh của 1 tam giác");
+                    } else {
+                        alert("Không phải là các cạnh của 1 tam giác");
+                    }
+                }
+            }
+        }
+    }
 </script>
 
-</html>
+</html
