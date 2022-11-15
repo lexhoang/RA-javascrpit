@@ -12,10 +12,9 @@
 </body>
 
 <script>
-
-    // let number = parseInt(prompt("Nhập"));
-    let count = 0;
+    //////////        CACH 1         ///////////:
     let number = parseInt(prompt("Nhập số lượng số nguyên tố bạn muốn"));
+    let count = 0;
     let N = 2;
     let check = true;
     let result = "";
@@ -35,6 +34,40 @@
         N++
     }
     document.write(result);
+
+
+    //////////        CACH 2        ///////////:
+    // var number1 = parseInt(prompt("Nhap so luong can in ra:")); //cho người dùng nhập
+    // //Dùng vòng lặp để in ra các số nguyên tố
+    // for (var i = 0; i <= number1; i++) {
+    //     if (test_prime(i)) {
+    //         document.write(i + ", ");
+    //     }
+    // }
+
+    // Hàm kiểm tra số nguyên tố
+    // function test_prime(number) {
+    //     if (number < 2) {
+    //         return false;
+    //         // Nếu số nhập vào nhỏ hơn 2 thì không phải số nguyên tố
+
+    //     } else if (number === 2) {
+    //         return true;
+    //         //Nếu số nhập bằng 2 thì là số nguyên tố
+
+    //     } else {
+    //         // Nếu số lớn hơn 2 thì tạo vòng lặp để tìm số nguyên tố
+    //         for (var x = 2; x < number; x++) {
+    //             console.log(x);
+    //             console.log("number " + number)
+    //             if (number % x === 0) {
+    //                 return false;
+    //                 // Nếu số nhập vào chia hết cho chính nó thì là số nguyên tố
+    //             }
+    //         }
+    //         return true;
+    //     }
+    // }
 </script>
 
 </html>
