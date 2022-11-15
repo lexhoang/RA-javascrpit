@@ -213,7 +213,7 @@
 
     function onBai8() {
         let maxNumber = parseInt(prompt("Số mà bạn muốn đoán nằm trong khoảng từ 1 --> ...?"))
-        let randomNumber = Math.floor(Math.random() * maxNumber);
+        let randomNumber = Math.floor((Math.random() * maxNumber) + 1);
         let number = 1;
         let gameOver = 1;
 
