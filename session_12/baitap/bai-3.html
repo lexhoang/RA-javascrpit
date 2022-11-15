@@ -46,28 +46,60 @@
 <body>
     <div class="container">
         <div>
-            <h2>Bài 1</h2>
+            <h2>Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã
+                hoàn thành.
+            </h2>
             <button onclick="onBai1()">Click bai 1</button>
         </div>
 
         <div>
-            <h2>Bài 2</h2>
+            <h2>Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập.
+                Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu
+                cầu người dùng tăng nhiệt độ.
+            </h2>
             <button onclick="onBai2()">Click bai 2</button>
         </div>
 
         <div>
-            <h2>Bài 3</h2>
+            <h2>Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.</h2>
             <button onclick="onBai3()">Click bai 3</button>
         </div>
 
         <div>
-            <h2>Bài 4</h2>
+            <h2>
+                Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+            </h2>
             <button onclick="onBai4()">Click bai 4</button>
         </div>
 
         <div>
-            <h2>Bài 5</h2>
+            <h2>
+                Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+            </h2>
             <button onclick="onBai5()">Click bai 5</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+            </h2>
+            <button onclick="onBai6()">Click bai 6</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra
+                "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ
+                "FizzBuzz".
+            </h2>
+            <button onclick="onBai7()">Click bai 7</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 8: Game đoán số
+            </h2>
+            <button onclick="onBai8()">Click bai 8</button>
         </div>
     </div>
 </body>
@@ -128,6 +160,80 @@
             n2 = temp;
         }
         document.write(sum)
+    }
+
+    function onBai6() {
+        //////    CACH 1     ////////
+        let number = parseInt(prompt("nhap number"))
+        let sum = 0;
+
+        for (let i = 1, j = 1; j <= number; i++) {
+            if (i % 7 == 0) {
+                sum = sum + i;
+                j++;
+                console.log(i);
+            }
+        }
+        console.log(sum);
+        alert(sum);
+
+        //////    CACH 12    ////////
+        // let n = 1;
+        // let sum = 0;
+        // let count = 0;
+        // while (n++) {
+        //     if (n % 7 == 0) {
+        //         count++;
+        //         sum += n;
+        //         if (count == 29) {
+        //             document.write("Tổng là " + sum);
+        //             break;
+        //         }
+        //     }
+        // }
+    }
+
+    function onBai7() {
+        for (let i = 0; i <= 100; i++) {
+            if (i % 3 == 0) {
+                document.write("Fizz");
+                document.write("<br/>");
+                continue;
+            }
+            if (i % 5 == 0) {
+                document.write("Buzz");
+                document.write("<br/>");
+                continue;
+            } else {
+                document.write(i);
+                document.write("<br/>");
+            }
+        }
+    }
+
+    function onBai8() {
+        let maxNumber = parseInt(prompt("Số mà bạn muốn đoán nằm trong khoảng từ 1 --> ...?"))
+        let randomNumber = Math.floor(Math.random() * maxNumber);
+        let number = 1;
+        let gameOver = 1;
+
+        do {
+            number = parseInt(prompt("Nhập số mà bạn dự đoán"));
+
+            if (number < randomNumber) {
+                alert("Nhỏ hơn rồi");
+            } else if (number > randomNumber) {
+                alert("Lớn hơn rồi");
+            }
+            gameOver++
+        }
+        while (number !== maxNumber && gameOver <= 3) {
+            if (gameOver > 3) {
+                alert("Game Over! Đáp án chính xác là: " + randomNumber);
+            } else {
+                alert("Chúc mừng bạn đã đoán đúng, đáp án là: " + randomNumber);
+            }
+        }
     }
 </script>
 
