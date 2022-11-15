@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai-4</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Bài 3: Vẽ tam giác</h2>
+            <button onclick="bai3()">Click Bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4: Vẽ hình chữ nhật</h2>
+            <button onclick="bai4()">Click Bài 4</button>
+        </div>
+
+        <div>
+            <h2>Bài 5: Tính lãi suất tiền gửi ngân hàng</h2>
+            <button onclick="bai5()">Click Bài 5</button>
+        </div>
+
+        <div>
+            <h2>Bài 6: Vẽ trái tim</h2>
+            <button onclick="bai6()">Click Bài 6</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function bai3() {
+        // hình 1
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 0; j < i; j++) {
+                document.write("*")
+            }
+            document.write("<br/>");
+        }
+        document.write("<br/>");
+
+        // hình 2
+        for (let i = 5; i >= 1; i--) {
+            for (let j = 0; j < i; j++) {
+                document.write("*")
+            }
+            document.write("<br/>");
+        }
+        document.write("<br/>");
+
+        //hình 3
+        for (let i = 5; i >= 1; i--) {
+            for (let j = 0; j <= 5; j++) {
+                if (j >= i) {
+                    document.write("*")
+                } else {
+                    document.write("&ensp;")
+                }
+            }
+            document.write("<br/>");
+        }
+        document.write("<br/>");
+
+        //hình 4
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 0; j <= 5; j++) {
+                if (j >= i) {
+                    document.write("*")
+                } else {
+                    document.write("&ensp;")
+                }
+            }
+            document.write("<br/>");
+        }
+        document.write("<br/>");
+    }
+
+    function bai4() {
+        for (let i = 1; i <= 20; i++) {
+            document.write("*");
+        }
+        document.write("<br/>");
+
+        for (let i = 1; i <= 5; i++) {
+            document.write("*");
+            for (let j = 1; j <= 18; j++) {
+                document.write("&ensp;")
+            }
+            document.write("*" + "<br/>");
+        }
+
+        for (let i = 1; i <= 20; i++) {
+            document.write("*");
+        }
+
+    }
+
+    function bai5() {
+        //lãi xuất gủi ngân hàng
+        let money = parseInt(prompt('nhập số tiền gửi :'));
+        let month = parseInt(prompt('nhập số tháng gửi :'));
+        let irate = parseInt(prompt('nhập vào lãi suất hàng tháng :'));
+        let interest = money;
+        let i = 1;
+        while (i <= month) {
+            interest *= (1 + irate / 100);    // tiền lãi = tiền lãi + tiền lãi x lãi suất
+            i++;
+        }
+        document.write(interest);
+    }
+
+    function bai6() {
+        //Vẽ hình trái tim
+        let num = 10;
+        for (let i = num / 2; i <= num; i += 2) {
+            for (let j = 1; j < num - i; j += 2) {
+                document.write("&nbsp&nbsp&nbsp");
+            }
+            for (j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            for (j = 1; j <= num - i; j++) {
+                document.write("&nbsp");
+            }
+            for (j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br/>");
+        }
+
+        for (i = num; i >= 1; i--) {
+            for (j = i; j < num; j++) {
+                document.write("&nbsp&nbsp");
+            }
+            for (j = 1; j <= (i * 2) - 1; j++) {
+                document.write("*");
+            }
+            document.write("<br/>");
+        }
+    }
+</script>
+
+</html>
