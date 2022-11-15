@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai-2</title>
+</head>
+
+<body>
+</body>
+
+<script>
+
+    // let number = parseInt(prompt("Nhập"));
+    let count = 0;
+    let number = parseInt(prompt("Nhập số lượng số nguyên tố bạn muốn"));
+    let N = 2;
+    let check = true;
+    let result = "";
+
+    while (count <= number) {
+        for (let i = 2; i < N; i++) {
+            if (N % i === 0) {
+                check = false;
+                break;
+            }
+            check = true;
+        }
+        if (check == true) {
+            count++
+            result += N + ","
+        }
+        N++
+    }
+    document.write(result);
+</script>
+
+</html>
