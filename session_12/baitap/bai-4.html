@@ -111,7 +111,6 @@
             }
             document.write("<br/>");
         }
-        document.write("<br/>");
     }
 
     function bai4() {
@@ -150,6 +149,7 @@
 
     function bai6() {
         //Vẽ hình trái tim
+        //     Cách 1     //
         let num = 10;
         for (let i = num / 2; i <= num; i += 2) {
             for (let j = 1; j < num - i; j += 2) {
@@ -176,6 +176,22 @@
             }
             document.write("<br/>");
         }
+
+        //    Cách 2     //
+        // let i, j, str;
+        // for (i = 1; i < 7; i++) {
+        //     // str='';
+        //     for (j = 1; j <= 7; j++) {
+        //         if (!((i == 1 && (j == 1 || j == 4 || j == 7)) || (i == 4 && (j == 1 || j == 7)) || (i == 5 && (j <= 2 || j >= 6)) || (i == 6 && (j <= 3 || j >= 5)))) {
+        //             document.write('**');
+        //         }
+        //         else {
+        //             document.write('&nbsp&nbsp&nbsp&nbsp');
+        //         }
+        //     }
+        //     // document.write(str);
+        //     document.write("<br>");
+        // }
     }
 </script>
 
