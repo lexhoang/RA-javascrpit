@@ -1,12 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>bai-1</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <button onclick="bai2()">Bài 2</button>
 </body>
+<script>
+    function bai1() {
+        document.write("<h2>Bài 1:</h2>");
+
+        let myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.toString());
+        document.write(myColor.toString() + '<br/>');
+        document.write(myColor.join() + '<br/>');
+        document.write(myColor.join(' + '));
+    }
+    bai1();
+
+    function bai2() {
+        document.write("<h2>Bài 2:</h2>");
+
+        let num = parseInt(prompt("Nhập số"));
+        let str = num.toString();
+        let result = [str[0]];
+
+        for (let i = 0; i < str.length; i++) {
+            if ((str[i - 1] % 2 === 0) && (str[i] % 2 === 0)) {
+                result.push('-', str[i]);
+            } else {
+                result.push(str[i]);
+            }
+        }
+        document.write(result.join(''));
+    }
+
+
+    function bai3() {
+        //CACH 1:
+        // document.write("Bài 3");
+
+        let str = 'The Quick Brown Fox'
+        let arr = str.split('');
+        let textChange = "";
+        for (let i = 0; i < arr.length; i++) {
+            // console.log(arr[i]);
+            if (arr[i].toUpperCase() === arr[i]) {
+                textChange += arr[i].toLowerCase()
+            } else {
+                textChange += arr[i].toUpperCase()
+            }
+            console.log(textChange);
+        }
+
+        //CACH 2:
+        // let strFox = "TRuonG MiNh ThU";
+        // console.log("before:" + strFox);
+
+        // var strFoxSp = strFox.split(" ");
+        // let array = [];
+
+        // for (const strFoxSpKey of strFoxSp) {
+        //     var tu = strFoxSpKey.split("");
+        //     console.log(tu);
+        //     for (const i in tu) {
+        //         if (i == 0) {
+        //             tu[i] = tu[i].toLowerCase();
+        //         } else {
+        //             tu[i] = tu[i].toUpperCase();
+        //         }
+        //     }
+        //     array.push(tu.join(""));
+        // }
+
+        // console.log("after:" + array.join(" "));
+    }
+    bai3();
+</script>
+
 </html>
