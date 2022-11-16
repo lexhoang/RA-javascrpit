@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Type Anthing Slowly</h1>
+
+    <textarea id="myText" cols="60" rows="30" onkeydown="myText()"></textarea>
+
+    <script>
+        let text = " Cố Gắng Thành DEV"
+        let array = text.split("")
+        let str = "";
+
+        function myText() {
+            let input = document.getElementById('myText').value;
+            let length = input.length
+            if (length > 0) {
+                for (let i = 1; i <= length; i++) {
+                    str += array[i];
+                    if (i == 18) {
+                        document.getElementById('myText').value = "";
+                        str = '';
+                    }
+                }
+            }
+            document.getElementById('myText').value = str;
+            str = '';
+            setTimeout(myText, 1);
+        }
+    </script>
+</body>
+
+</html>
