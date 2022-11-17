@@ -74,19 +74,41 @@
     function search() {
         let text = document.getElementById("text").value;
         let result = "";
+        let check = false;
         let arrEng = ["Banana", "Orange", "Mango", "Apple", "Lemon"];
         let arrVN = ["Quả Chuối", "Quả Cam", "Quả Xoài", "Quả Táo", "Quả Chanh"];
 
-        for (let i = 0; i < arrEng.length; i++) {
-            if (text.toLowerCase() == arrEng[i].toLowerCase()) {
-                result = arrVN[i]
-                console.log(result);
+        // CÁCH 1: FOR IN
+        for (const key in arrEng) {
+            if (arrEng[key].toLowerCase() == text.toLowerCase()) {
+                result = arrVN[key];
                 document.getElementById("result").innerHTML = result;
-                break;
-            } else {
+                check = true;
+            }
+            else if (check == false) {
                 document.getElementById("result").innerHTML = "Chưa có dữ liệu";
             }
         }
+
+
+        // CÁCH 2:
+        // for (let i = 0; i < arrEng.length; i++) {
+        //     if (text.toLowerCase() == arrEng[i].toLowerCase()) {
+        //         result = arrVN[i]
+        //         console.log(result);
+        //         document.getElementById("result").innerHTML = result;
+        //         break;
+        //     }
+        //     if (text.toLowerCase() == arrVN[i].toLowerCase()) {
+        //         result = arrEng[i]
+        //         console.log(result);
+        //         document.getElementById("result").innerHTML = result;
+        //         break;
+        //     }
+        //     else {
+        //         document.getElementById("result").innerHTML = "Chưa có dữ liệu";
+        //     }
+        // }
     }
 </script>
 

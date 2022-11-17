@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luyenTapMang</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Bài 1: Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình
+                thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+            </h2>
+            <button onclick="bai1()">Bài 1</button>
+        </div>
+
+        <div>
+            <h2>Bài 2: Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+                Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần
+                tử đó.
+            </h2>
+            <button onclick="bai2()">Bài 2</button>
+        </div>
+
+        <div>
+            <h2>Bài 3: Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong
+                mảng đó. In ra giá trị trung bình của các phần tử trong mảng.
+            </h2>
+            <button onclick="bai3()">Bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4: Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các
+                phần tử trong mảng đó.
+            </h2>
+            <button onclick="bai4()">Bài 4</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 5: Viết chương trình đếm số nguyên âm trong một chuỗi.
+            </h2>
+            <button onclick="bai5()">Bài 5</button>
+        </div>
+
+        <div>
+            <h2>Bài 6: Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử,
+                nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số
+                nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra
+                "V is not in the array".
+            </h2>
+            <button onclick="bai6()">Bài 6</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 7: Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử,
+                nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho
+                không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là
+                dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của
+                mảng).
+            </h2>
+            <button onclick="bai7()">Bài 7</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 8: Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+                Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp
+                xếp.
+            </h2>
+            <button onclick="bai8()">Bài 8</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 9: Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là
+                mảng a và b. Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+                Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị
+                mảng c.
+            </h2>
+            <button onclick="bai9()">Bài 9</button>
+        </div>
+    </div>
+</body>
+<script>
+    function bai1() {
+        let array = [1, 2, 3, 4, 5, 6, 77, 84, 9, 10];
+        let result = "";
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] >= 10) {
+                count += 1
+                result = array[i]
+                document.write(result + " , ");
+            }
+        }
+        document.write("<br/>");
+        document.write("Có " + count + " số lớn hơn 10");
+    }
+
+    function bai2() {
+        let array = [1, 2, 3, 4, 5, 6, 77, 84, 9, 10];
+        let result = "";
+        let max_array = 0;
+        let max_index = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (max_array < array[i]) {
+                max_array = array[i];
+                max_index = i
+            }
+        }
+        document.write("Số lớn nhất là: " + max_array + " và nằm ở vị trí thứ " + max_index + " trong mảng")
+    }
+
+    function bai3() {
+        let array = [10, 2, 3, 4, 5, 6, 77, 44, 19, 10];
+        let result = "";
+        let sum = 0;
+        let average;
+        let max_array = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (max_array < array[i]) {
+                max_array = array[i];
+            }
+            sum += array[i]
+            average = sum / array.length
+        }
+        document.write("Số lớn nhất là: " + max_array);
+        document.write("<br>")
+        document.write("Giá trị trung bình của các phần tử trong mảng là: " + average)
+    }
+
+    function bai4() {
+        let num = parseInt(prompt("Nhập số"));
+        let str = num.toString();
+        let array = str.split("")
+        array.reverse();
+        document.write(array);
+    }
+
+    function bai5() {
+        let str = "ha 5 -6 5 6 -1"
+        let array = str.split(" ")
+        console.log(array);
+
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                document.write(array[i], " ")
+            }
+        }
+    }
+
+    function bai6() {
+        let array = [1, 2, 3, 4, 5, 6, 77, 84, 9, 10];
+        let result = "";
+        let V = parseInt(prompt("Nhập số V"));
+        for (let i = 0; i < array.length; i++) {
+            document.write(array[i] + ", ");
+            if (array[i] == V) {
+                result = V + " is in the array"
+            } else {
+                result = V + " is not in the array"
+            }
+        }
+        document.write("<br/>")
+        document.write(result);
+    }
+
+    function bai7() {
+        let array = [1, 2, 3, 4, 5, 6, 77, 84, 9, 10];
+        let result = "";
+        let V = parseInt(prompt("Nhập số V"));
+        document.write("Mảng ban đầu: " + array);
+
+        for (let i = 0; i < array.length; i++) {
+            if (V === array[i]) {
+                array.splice(i, 1);
+                array.push(0);
+            }
+        }
+        document.write("<br/>")
+        document.write("Mảng sau: " + array);
+    }
+
+    function bai8() {
+        let number = parseInt(prompt("Nhập 10 số"));
+        let str = number.toString();
+        let array = str.split("");
+        array.sort();
+        array.reverse();
+        document.write(array)
+    }
+
+    function bai9() {
+        let arrayA = [1, 2, 3, 44, 15, 6, 77, 84, 9, 10];
+        let arrayB = [2, 5, 8, 4, 6, 8, 1, 7, 5, 6, 9, 52];
+        let newArray = [];
+        let arrayC = newArray.concat(arrayA, arrayB);
+        document.write(arrayC)
+    }
+</script>
+
+</html>
