@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luyentap-2</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra
+                các phần tử trong mảng.
+            </h2>
+            <button onclick="bai1()">Bài 1</button>
+        </div>
+
+        <div>
+            <h2>Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+            </h2>
+            <button onclick="bai2()">Bài 2</button>
+        </div>
+
+        <div>
+            <h2>Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+                Chương trình này đếm số ký tự số trong mảng.
+            </h2>
+            <button onclick="bai3()">Bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+            </h2>
+            <button onclick="bai4()">Bài 4</button>
+        </div>
+
+        <div>
+            <h2>Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có
+                giống nhau hay không.
+            </h2>
+            <button onclick="bai5()">Bài 5</button>
+        </div>
+
+
+        <div>
+            <h2>Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là
+                (-) và thay thế các ký tự này bởi ký tự ( _ )
+            </h2>
+            <button onclick="bai6()">Bài 6</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function bai1() {
+        let array = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+        for (let i = 0; i < array.length; i++) {
+            document.write("Row " + i + "<br>");
+            document.write(array[i] + "<br>");
+            document.write("<br>")
+        }
+    }
+
+    function bai2() {
+        let array = ['c', 's', 'c', '2', '6', '1'];
+        let resultArr = array.reverse().join("");
+        document.write(resultArr);
+    }
+
+    function bai3() {
+        let array = ["Hoang99", "Sơn90"];
+        let count = 0;
+        let newArray = array.toString().split('')
+
+        for (let i = 0; i < newArray.length; i++) {
+            let num = parseInt(newArray[i]);
+            if (Number.isInteger(num)) {
+                count++
+            }
+        }
+        document.write(count)
+
+    }
+
+    function bai4() {
+        let str = "Tôi đang học lập trình";
+        let array = str.split(" ")
+        console.log(array);
+        document.write(array);
+    }
+
+    function bai5() {
+        let str_1 = prompt("Nhập chuối 1");
+        let str_2 = prompt("Nhập chuối 2");
+
+        if (str_1 === str_2) {
+            alert("2 chuỗi bằng nhau");
+        } else {
+            alert("2 chuỗi không bằng nhau");
+        }
+    }
+
+    function bai6() {
+        let str = prompt("Nhập chuỗi");
+        let array = str.split("");
+        console.log(array);
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == "-") {
+                array[i] = "_"
+            }
+        }
+        document.write(array.join(""));
+    }
+</script>
+
+</html>
