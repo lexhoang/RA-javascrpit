@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh-3</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let arr1 = [3, 5, 1, 8, -3, 7, 8];
+    let arr2 = [7, 12, 6, 9, 20, 56, 89];
+    let arr3 = [];
+    let arr4 = [0, 0, 0, 0, 0, 0];
+
+    function minNumberInArray(array) {
+        if (array.length == 0) {
+            return -1;
+        }
+
+        let minNumber = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (minNumber > array[i]) {
+                minNumber = array[i];
+            }
+        }
+        return minNumber;
+    }
+    document.write("Số nhỏ nhất trong mảng 1 là : " + minNumberInArray(arr1));
+    document.write("</br>");
+    document.write("Số nhỏ nhất trong mảng 2 là : " + minNumberInArray(arr2));
+    document.write("</br>");
+    document.write("Số nhỏ nhất trong mảng 3 là : " + minNumberInArray(arr3));
+    document.write("</br>");
+    document.write("Số nhỏ nhất trong mảng 4 là : " + minNumberInArray(arr4));
+</script>
+
+</html>
