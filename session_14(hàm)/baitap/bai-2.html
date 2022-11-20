@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai-2</title>
+    <style>
+        body {
+            background-color: rgba(237, 237, 237, 0.148);
+        }
+
+        .container {
+            background-color: #fff;
+            width: 500px;
+            margin: 80px auto;
+            text-align: center;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4)
+        }
+
+        .box1 {
+            background-color: #009688;
+            color: #fff;
+            padding: 20px;
+
+        }
+
+        .box2 {
+            background-color: #ef5350;
+            color: #fff;
+            padding: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1">
+            <h2>Chuyển Feet sang Meters</h2>
+            <label>Feet: </label>
+            <input type="number" oninput="onChangeFeetToMeters(this.value) "
+                onchange="onChangeFeetToMeters(this.value)">
+            <h4>Meters: <span id="outputMeters"></span> </h4>
+        </div>
+
+        <div class="box2">
+            <h2>Chuyển Meters sang Feet</h2>
+            <label>Meters: </label>
+            <input type="number" oninput="onChangeMetersToFeet(this.value) "
+                onchange="onChangeMetersToFeet(this.value)">
+            <h4>Feet: <span id="outputFeet"></span> </h4>
+        </div>
+    </div>
+</body>
+
+<script>
+    function onChangeFeetToMeters(value) {
+        value = parseFloat(value);
+        document.getElementById("outputMeters").innerHTML = 0.305 * value;
+    }
+
+    function onChangeMetersToFeet(value) {
+        value = parseFloat(value);
+        document.getElementById("outputFeet").innerHTML = 3.279 * value;
+    }
+</script>
+
+</html>
