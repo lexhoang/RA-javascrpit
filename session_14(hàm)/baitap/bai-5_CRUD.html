@@ -15,21 +15,26 @@
         }
 
         .container {
-            width: 500px;
+            width: 600px;
             margin: 40px auto;
 
         }
 
         .add {
             background-color: #f2f2f2;
-            padding: 20px;
+            padding: 12px;
+            width: 70%;
             text-align: center;
+            margin: 0 auto;
         }
 
         .edit {
             background-color: #f2f2f2;
-            padding: 20px;
+            padding: 12px;
+            width: 70%;
             text-align: center;
+            margin: 0 auto;
+            margin-bottom: 20px;
         }
 
         input {
@@ -109,6 +114,7 @@
         let productTable = `
         <table  cellspacing="1" cellpadding="20">
             <tr>
+                <th>STT</th>
                 <th>Product Name</th>
                 <th colspan="2">Action</th>
                 <th class="count">${arrayProduct.length} Product</th>
@@ -117,6 +123,7 @@
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += `
                     <tr>
+                        <td>${i + 1}</td>
                         <td>${arrayProduct[i]}</td>
                         <td>
                             <button class="btn-edit" onclick="editProduct(${i})">Edit</button>
