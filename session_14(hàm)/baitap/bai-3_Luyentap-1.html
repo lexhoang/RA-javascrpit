@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h2>Bài 1</h2>
+            <button onclick="alertMessage()">Click bài 1</button>
+        </div>
+
+        <div>
+            <h2>Bài 2</h2>
+            <input type="number" oninput="increaseNumber(this.value)" onchange="increaseNumber(this.value)">
+            <h2> Kết quả: <span id="increaseNumber"></span> </h2>
+        </div>
+
+        <div>
+            <h2>Bài 3</h2>
+            <button onclick="alertNumber()">Click bài 3</button>
+        </div>
+
+        <div>
+            <h2>Bài 4</h2>
+            <button onclick="addAlert()">Click bài 4</button>
+        </div>
+
+        <div>
+            <h2>Bài 5</h2>
+            <input type="text" oninput="findConstellation(this.value)" onchange="findConstellation(this.value)"
+                placeholder="Nhập tên ngôi sao">
+            <h3> Chòm sao tương ứng: <span id="findConstellation"></span> </h3>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Bài 1
+    function alertMessage() {
+        alert("Xin chào");
+    }
+
+
+    // Bài 2
+    function increaseNumber(value) {
+        value = parseFloat(value);
+        document.getElementById("increaseNumber").innerHTML = value + 1;
+    }
+
+
+    // Bài 3
+    function conditionNumber(a, b) {
+        if (a > b) {
+            return "Số " + a + " lớn hơn số " + b;
+        } else if (a < b) {
+            return a + b;
+        }
+    }
+    function alertNumber() {
+        let a = parseInt(prompt("Nhập số thứ nhất"));
+        let b = parseInt(prompt("Nhập số thứ hai"));
+        alert(conditionNumber(a, b))
+    }
+
+
+    // Bài 4
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+    function addAlert() {
+        result = 0;
+        alert("Giá trị ban đầu: " + result);
+
+        result = addNumbers();
+        alert("Giá trị thay đổi: " + result);
+    }
+
+    //Bài 5
+    function findConstellation(value) {
+        let arrayStar = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let arrayConstellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", " Ursa Major", "Leo"]
+        let result = "";
+        let check = false;
+
+        for (let index in arrayStar) {
+            if (value.toLowerCase() === arrayStar[index].toLowerCase()) {
+                result = arrayConstellation[index];
+                document.getElementById("findConstellation").innerHTML = result;
+                check = true;
+            }
+            if (check == false) {
+                document.getElementById("findConstellation").innerHTML = "<br><br> Không có chòm sao tương ứng";
+                check = false;
+            }
+        }
+    }
+</script>
+
+</html>
