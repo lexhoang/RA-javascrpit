@@ -26,19 +26,27 @@
             width: 70%;
             text-align: center;
             margin: 0 auto;
-            margin-bottom: 20px;
         }
 
-        .add input {
+        .edit {
+            background-color: #f2f2f2;
+            padding: 12px;
+            width: 70%;
+            text-align: center;
+            margin-bottom: 30px;
+            margin: 0 auto;
+        }
+
+        input {
             width: 300px;
-            height: 35px;
+            height: 30px;
             border: 1px solid #ccc;
             text-align: center;
         }
 
         button {
             width: 70px;
-            height: 40px;
+            height: 30px;
             background-color: #50af50;
             color: #fff;
             border-radius: 8px;
@@ -76,12 +84,7 @@
         }
 
         .count {
-            color: rgb(21, 255, 0);
-        }
-
-        .editProduct {
-            width: 140px;
-            height: 30px
+            color: rgb(80, 255, 4);
         }
     </style>
 </head>
@@ -92,6 +95,11 @@
         <div class="add">
             <input type="text" placeholder="New product" id="addProduct" />
             <button onclick="addProduct()">Add</button>
+        </div>
+        <br>
+        <div class="edit">
+            <input type="text" placeholder="Edit product" id="editProduct" />
+            <button onclick="save()">Save</button>
         </div>
         <br>
         <h2>Display All Product</h2>
@@ -106,7 +114,6 @@
         let productTable = `
         <table  cellspacing="1" cellpadding="20">
             <tr>
-                <th>STT</th>
                 <th>Product Name</th>
                 <th colspan="2">Action</th>
                 <th class="count">${arrayProduct.length} Product</th>
@@ -115,14 +122,9 @@
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += `
                     <tr>
-                        <td>${i + 1}</td>
-                        <td>
-                            <p class="name">${arrayProduct[i]}</p>
-                            <input type="text" style="display:none" placeholder="Edit product" class="editProduct"/>
-                        </td>
+                        <td>${arrayProduct[i]}</td>
                         <td>
                             <button class="btn-edit" onclick="editProduct(${i})">Edit</button>
-                            <button onclick="saveEdit()" style="display:none" class="btn-saveEdit">Save</button>
                         </td>
                         <td>
                             <button class="btn-delete" onclick="deleteProduct(${i})">Delete</button>
@@ -141,42 +143,28 @@
     }
     displayProduct();
 
-    // Thêm sản phẩm
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value;
         arrayProduct.push(valueAdd);
-
         document.getElementById("addProduct").value = "";
-        displayProduct(); //Vẽ lại bảng sau khi đã thêm sản phẩm
+        displayProduct();//Vẽ lại bảng sau khi đã thêm sản phẩm
     }
 
-    //Xóa sản phẩm
     function deleteProduct(index) {
         arrayProduct.splice(index, 1);
         displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
     }
 
-    var value = "";//Tạo biến lưu thứ tự sản phẩm được chọn
-    //Sửa sản phẩm
+    var value = "";
     function editProduct(index) {
-        let name = document.querySelectorAll(".name");
-        name[index].style.display = "none"
-
-        let saveEdit = document.querySelectorAll(".btn-saveEdit");
-        saveEdit[index].style.display = "block"
-
-        let btnEdit = document.querySelectorAll(".btn-edit");
-        btnEdit[index].style.display = "none"
-
-        let editProduct = document.querySelectorAll(".editProduct");
-        editProduct[index].style.display = "block"
-        editProduct[index].value = arrayProduct[index];
+        document.getElementById("editProduct").value = arrayProduct[index];
         value = index;
     }
-    //Lưu sản phẩm sau khi sửa
-    function saveEdit() {
-        let result = document.querySelectorAll(".editProduct");
-        arrayProduct[value] = result[value].value;
+
+    function save() {
+        let result = document.getElementById("editProduct").value;
+        arrayProduct[value] = result;
+        document.getElementById("editProduct").value = "";
         displayProduct();//Vẽ lại bảng sau khi đã sửa sản phẩm
     }
 
