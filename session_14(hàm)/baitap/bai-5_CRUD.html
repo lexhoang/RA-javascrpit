@@ -152,8 +152,10 @@
 
     //Xóa sản phẩm
     function deleteProduct(index) {
-        arrayProduct.splice(index, 1);
-        displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
+        if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {
+            arrayProduct.splice(index, 1);
+            displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
+        }
     }
 
     var value = "";//Tạo biến lưu thứ tự sản phẩm được chọn
