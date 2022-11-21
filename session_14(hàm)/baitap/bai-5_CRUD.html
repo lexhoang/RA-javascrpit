@@ -141,18 +141,21 @@
     }
     displayProduct();
 
+    // Thêm sản phẩm
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value;
         arrayProduct.push(valueAdd);
         displayProduct();
     }
 
+    //Xóa sản phẩm
     function deleteProduct(index) {
         arrayProduct.splice(index, 1);
         displayProduct();
     }
 
-    var value = "";
+    var value = "";//Tạo biến lưu thứ tự sản phẩm được chọn
+    //Sửa sản phẩm
     function editProduct(index) {
         let name = document.querySelectorAll(".name");
         name[index].style.display = "none"
@@ -168,7 +171,7 @@
         editProduct[index].value = arrayProduct[index];
         value = index;
     }
-
+    //Lưu sản phẩm sau khi sửa
     function saveEdit() {
         let result = document.querySelectorAll(".editProduct");
         arrayProduct[value] = result[value].value;
