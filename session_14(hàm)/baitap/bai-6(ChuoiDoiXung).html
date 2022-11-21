@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isPalindrome() {
+            let string = prompt("Enter String")
+            let arr = string.split("")
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] !== arr[arr.length - 1 - i]) {
+                    return false
+                }
+            }
+            return true
+        }
+        if (isPalindrome()) {
+            alert("Chuỗi đối xứng")
+        } else {
+            alert("Không phải chuỗi đối xứng")
+        }
+    </script>
+</body>
+
+</html>

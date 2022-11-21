@@ -6,87 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UngDungQuanLySanPham</title>
-    <style>
-        body {
-            background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/10/Black-Galaxy-Wallpapers-HD.jpg");
-            color: #fff;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        .container {
-            width: 600px;
-            margin: 40px auto;
-
-        }
-
-        .add {
-            background-color: #f2f2f22f;
-            padding: 12px;
-            width: 70%;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .edit {
-            background-color: #f2f2f22f;
-            padding: 12px;
-            width: 70%;
-            text-align: center;
-            margin-bottom: 30px;
-            margin: 0 auto;
-        }
-
-        input {
-            width: 300px;
-            height: 30px;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-
-        button {
-            width: 70px;
-            height: 30px;
-            background-color: #50af50;
-            color: #fff;
-            border-radius: 8px;
-            border: none
-        }
-
-        button:hover {
-            cursor: pointer;
-            background-color: green;
-        }
-
-
-        .btn-edit {
-            height: 35px;
-            background-color: rgb(10, 160, 187);
-        }
-
-        .btn-edit:hover {
-            background-color: rgb(0, 64, 255)
-        }
-
-        .btn-delete {
-            background-color: rgb(255, 0, 0);
-            color: #fff;
-            height: 35px;
-        }
-
-        .btn-delete:hover {
-            background-color: rgb(167, 167, 167)
-        }
-
-        table {
-            width: 100%;
-            border: 4px solid #ccc;
-        }
-
-        .count {
-            color: rgb(80, 255, 4);
-        }
-    </style>
 </head>
 
 <body>
@@ -109,63 +28,56 @@
 
 <script>
     let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
-    let result = document.getElementById("result");
-    function displayProduct() {
-        let productTable = `
-        <table  cellspacing="1" cellpadding="20">
-            <tr>
-                <th>Product Name</th>
-                <th colspan="2">Action</th>
-                <th class="count">${arrayProduct.length} Product</th>
-            </tr>
-    `
-        for (let i = 0; i < arrayProduct.length; i++) {
-            productTable += `
-                    <tr>
-                        <td>${arrayProduct[i]}</td>
-                        <td>
-                            <button class="btn-edit" onclick="editProduct(${i})">Edit</button>
-                        </td>
-                        <td>
-                            <button class="btn-delete" onclick="deleteProduct(${i})">Delete</button>
-                        </td>
-                    </tr>
+    function displayProduct() {  //Tạo bảng sản phẩm
+        let productTable = ' <table border="1"  cellspacing="1" cellpadding="20">'
+        productTable += '<tr>'
+        productTable += '<th>Product Name</th>' //Tạo Cột tên sản phẩm
+        productTable += '<th colspan="2">Action</th>' //Tạo Cột chưa nút
+        productTable += '<th class="count">' + arrayProduct.length + 'Product</th>' //Tạo Cột số lượng sản phẩm
+        productTable += '</tr>'
 
-            `
-            // productTable += "<tr>"
-            // productTable += "<td>" + arrayProduct[i] + "</td>"
-            // productTable += "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>"
-            // productTable += "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>"
-            // productTable += "</tr>"
+        for (let i = 0; i < arrayProduct.length; i++) {
+            productTable += "<tr>"
+            productTable += "<td>" + arrayProduct[i] + "</td>" //Tạo tên sản phẩm
+            productTable += "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm)
+            productTable += "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm)
+            productTable += "</tr>"
         }
         productTable += `</table>`
-        result.innerHTML = productTable;
-    }
-    displayProduct();
 
+        document.getElementById("result").innerHTML = productTable;// Hiển thị bảng
+    }
+    displayProduct();//Gọi lại hàm để chạy hàm
+
+    //Thêm sản  phẩm
     function addProduct() {
-        let valueAdd = document.getElementById("addProduct").value;
-        arrayProduct.push(valueAdd);
-        document.getElementById("addProduct").value = "";
+        let valueAdd = document.getElementById("addProduct").value; //Gán biến bằng giá trị nhập vào của ô input thêm sản phẩm
+        arrayProduct.push(valueAdd);// Sử dụng push để thêm sản phẩm mới vào cuối mảng sản phẩm đã có
+
+        document.getElementById("addProduct").value = "";// Sau khi thêm sản phẩm ô input rỗng
         displayProduct();//Vẽ lại bảng sau khi đã thêm sản phẩm
     }
 
+    //Xóa sản phẩm
     function deleteProduct(index) {
-        if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {
-            arrayProduct.splice(index, 1);
+        if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {//Nếu nhấn oke ở nút confirm thì mới cho xóa
+            arrayProduct.splice(index, 1); // Dùng hàm splice để xóa sản phẩm ở hàng tương ứng với nút delete
             displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
         }
     }
 
-    var value = "";
+    //Sửa sản phẩm
+    var value = ""; //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
     function editProduct(index) {
-        document.getElementById("editProduct").value = arrayProduct[index];
-        value = index;
+        document.getElementById("editProduct").value = arrayProduct[index]; //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
+        value = index; // gán biến value bằng vị trí của phần tử trong mảng
     }
 
+    //Lưu sản phẩm đã sửa
     function save() {
         let result = document.getElementById("editProduct").value;
-        arrayProduct[value] = result;
+        arrayProduct[value] = result;//Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
+
         document.getElementById("editProduct").value = "";
         displayProduct();//Vẽ lại bảng sau khi đã sửa sản phẩm
     }
