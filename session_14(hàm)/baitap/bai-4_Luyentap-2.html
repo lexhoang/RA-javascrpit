@@ -227,14 +227,17 @@
         let array = str.split("");
         console.log(array);
         let count = 0;
-
+        let check = false;
         let character = prompt("Nhập ký tự để kiểm tra xem có trong mảng không?");
 
         for (let i = 0; i < array.length; i++) {
             if (character.toLowerCase() == array[i].toLowerCase()) {
                 count += 1;
+                check = true;
             }
-
+        }
+        if (check == false) {
+            count = -1
         }
         alert(count);
     }
