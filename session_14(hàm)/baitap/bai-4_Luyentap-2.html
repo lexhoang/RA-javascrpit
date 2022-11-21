@@ -67,6 +67,54 @@
             <p>Diện tích hình tròn: <span id="areaCircle"></span> </p>
             <p>Chu vi hình tròn: <span id="perimeterCircle"></span> </p>
         </div>
+
+        <div>
+            <h2>
+                Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự
+                số hàm trả về true, ngược lại trả về false.
+            </h2>
+            <button onclick="checkNumber()">Click bài 4</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất
+            </h2>
+            <button onclick="findMinNumber()">Click bài 5</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên
+                dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.
+            </h2>
+            <button onclick="findNumberInteger()">Click bài 6</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 7: Viết hàm truyền vào 2 số nguyên bất kì,
+                thực hiện đổi chỗ hai số nguyên đó (Tham chiếu).
+            </h2>
+            <button onclick="swapNumber()">Click bài 7</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số
+                nguyên đó.
+            </h2>
+            <button onclick="reverseArray()">Click bài 8</button>
+        </div>
+
+        <div>
+            <h2>
+                Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự
+                bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu
+                không trả về -1.
+            </h2>
+            <button onclick="bai9()">Click bài 9</button>
+        </div>
     </div>
 </body>
 
@@ -89,6 +137,108 @@
         document.getElementById("areaCircle").innerHTML = areaCircle.toFixed(2);
         document.getElementById("perimeterCircle").innerHTML = perimeterCircle.toFixed(2);
     }
+
+    //Bài 4
+    function isNumber(number) {
+        return !isNaN(number);
+    }
+    function checkNumber() {
+        let number = prompt("Nhập dữ liệu");
+        alert((isNumber(number)));
+    }
+
+    //bài 5
+    function minNumber(array) {
+        let minArray = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (minArray > array[i]) {
+                minArray = array[i];
+            }
+        }
+        return "Số nhỏ nhất trong 3 số là: " + minArray;
+    }
+    function findMinNumber() {
+        let number_1 = parseFloat(prompt("Nhập số thứ nhất"));
+        let number_2 = parseFloat(prompt("Nhập số thứ hai"));
+        let number_3 = parseFloat(prompt("Nhập số thứ ba"));
+
+        let array = [number_1, number_2, number_3];
+        alert(minNumber(array));
+    }
+
+    //Bài 6
+    function checkNumberInteger(num) {
+        if (Number.isInteger(num)) {
+            if (num >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    function findNumberInteger() {
+        let num = parseFloat(prompt("Nhập số"));
+        alert(checkNumberInteger(num));
+    }
+
+    //Bài 7
+    //Đổi chỗ 2 số
+    // function swapNumber() {
+    //     let num1 = parseFloat(prompt("Nhập số thứ nhất"));
+    //     let num2 = parseFloat(prompt("Nhập số thứ hai"));
+
+    //     let temp = num1;
+    //     num1 = num2;
+    //     num2 = temp;
+    //     alert("Số thứ nhất là: " + num1 + " và " + "số thứ hai là: " + num2)
+    // }
+
+    // Đổi chỗ 2 số trong mảng THAM CHIẾU
+    function swapNumber() {
+        let num1 = parseFloat(prompt("Nhập số thứ nhất"));
+        let num2 = parseFloat(prompt("Nhập số thứ hai"));
+        let arrayNum = [num1, num2];
+        let swapArray = swapNumberInArray(arrayNum)
+        alert("Số thứ nhất là: " + swapArray[0] + " và " + "số thứ 2 là: " + swapArray[1]);
+    }
+
+    function swapNumberInArray(arrayNum) {
+        let temp = arrayNum[0];
+        arrayNum[0] = arrayNum[1];
+        arrayNum[1] = temp;
+        return arrayNum
+    }
+
+    //Bài 8
+    function reverseArray() {
+        let num = parseFloat(prompt("Nhập số"));
+        let str = num.toString();
+        let array = str.split("");
+        console.log(array);
+
+        let reverseArray = array.reverse()
+        alert("Kết quả sau khi đảo ngược: " + reverseArray);
+    }
+
+    function bai9() {
+        let str = "Hello Word";
+        let array = str.split("");
+        console.log(array);
+        let count = 0;
+
+        let character = prompt("Nhập ký tự để kiểm tra xem có trong mảng không?");
+
+        for (let i = 0; i < array.length; i++) {
+            if (character.toLowerCase() == array[i].toLowerCase()) {
+                count += 1;
+            }
+
+        }
+        alert(count);
+    }
+
 </script>
 
 </html>
