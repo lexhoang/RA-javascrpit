@@ -85,7 +85,7 @@
     function displayProduct() {                                     //Tạo bảng sản phẩm
         let productTable = ' <table border="0"  cellspacing="0" cellpadding="20">'
             + '<tr>'
-            + '<th>STT</th>'                               //Tạo Cột tên sản phẩm
+            + '<th>STT</th>'                                        //Tạo Cột tên sản phẩm
             + '<th>Product Name</th>'                               //Tạo Cột tên sản phẩm
             + '<th colspan="2">Action</th>'                         //Tạo Cột chưa nút
             + '<th class="count" style="color:red">' + arrayProduct.length + ' Product</th>' //Tạo Cột số lượng sản phẩm
@@ -93,7 +93,7 @@
 
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += "<tr>"
-                + "<td>" + (i + 1) + "</td>"                //Tạo tên sản phẩm
+                + "<td>" + (i + 1) + "</td>"                        //Tạo tên sản phẩm
                 + "<td>" + arrayProduct[i] + "</td>"                //Tạo tên sản phẩm
                 + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
                 + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
