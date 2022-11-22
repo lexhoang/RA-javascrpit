@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baidoc-3</title>
+</head>
+
+<body>
+    <canvas id="lineCanvas" width="200" height="100" style="border:1px solid
+    #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <canvas id="circleCanvas" width="200" height="100" style="border:1px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <canvas id="textCanvas" width="200" height="100" style="border:1px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <canvas id="gradientCanvas" width="200" height="100" style="border:1px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <canvas id="gradientTronCanvas" width="200" height="100" style="border:1px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+</body>
+
+<script>
+    ////////////     Vẽ đường thẳng     /////////////
+    function lineCanvas() {
+        let c = document.getElementById("lineCanvas");
+        let ctx = c.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+    }
+    lineCanvas();
+
+    ////////////     Vẽ hình tròn     /////////////
+    function circleCanvas() {
+        let c = document.getElementById("circleCanvas");
+        let ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+    circleCanvas();
+
+    ////////////     Vẽ chữ    /////////////
+    function textCanvas() {
+        let c = document.getElementById("textCanvas");
+        let ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.fillText("Hello world", 10, 50);
+    }
+    textCanvas();
+
+
+    ////////////     Hiệu ứng gradient trong canvas    /////////////
+    function gradientCanvas() {
+        let c = document.getElementById("gradientCanvas");
+        let ctx = c.getContext("2d");
+        // Create gradient
+        let grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+
+        // Fill with gradient
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+    }
+    gradientCanvas();
+
+
+    ////////////     Hiệu ứng gradient tròn trong canvas    /////////////
+    function gradientTronCanvas() {
+        let c = document.getElementById("gradientTronCanvas");
+        let ctx = c.getContext("2d");
+        // Create gradient
+        let grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+
+        // Fill with gradient
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+    }
+    gradientTronCanvas();
+</script>
+
+</html>
