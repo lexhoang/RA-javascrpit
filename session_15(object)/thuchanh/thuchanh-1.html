@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thuchanh-1</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let MyDate = function (day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+
+        this.getDay = function () {
+            return this.day;
+        }
+
+        this.getMonth = function () {
+            return this.month;
+        }
+
+        this.getYear = function () {
+            return this.year;
+        }
+
+        this.setDay = function (day) {
+            return this.day = day
+        }
+
+        this.setMonth = function (month) {
+            return this.month = month;
+        }
+
+        this.setYear = function (year) {
+            return this.year = year;
+        }
+    }
+
+    let date = new MyDate(22, 11, 2022);
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    alert(day + " / " + month + " / " + year);
+
+
+    let day2 = date.setDay(20);
+    let month2 = date.setMonth(11);
+    let year2 = date.setYear(2022)
+    alert(day2 + " / " + month2 + " / " + year2);
+</script>
+
+</html>
