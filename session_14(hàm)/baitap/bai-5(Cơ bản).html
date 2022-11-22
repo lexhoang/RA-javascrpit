@@ -8,7 +8,7 @@
     <title>UngDungQuanLySanPham</title>
     <style>
         .container {
-            width: 500px;
+            width: 600px;
             margin: 0 auto;
             /* background-color: #eee; */
             padding: 12px
@@ -85,6 +85,7 @@
     function displayProduct() {                                     //Tạo bảng sản phẩm
         let productTable = ' <table border="0"  cellspacing="0" cellpadding="20">'
             + '<tr>'
+            + '<th>STT</th>'                               //Tạo Cột tên sản phẩm
             + '<th>Product Name</th>'                               //Tạo Cột tên sản phẩm
             + '<th colspan="2">Action</th>'                         //Tạo Cột chưa nút
             + '<th class="count" style="color:red">' + arrayProduct.length + ' Product</th>' //Tạo Cột số lượng sản phẩm
@@ -92,6 +93,7 @@
 
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += "<tr>"
+                + "<td>" + (i + 1) + "</td>"                //Tạo tên sản phẩm
                 + "<td>" + arrayProduct[i] + "</td>"                //Tạo tên sản phẩm
                 + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
                 + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
@@ -101,7 +103,7 @@
 
         document.getElementById("result").innerHTML = productTable;// Hiển thị bảng
     }
-    displayProduct();//Gọi lại hàm để chạy hàm
+    displayProduct();       //Gọi lại hàm để chạy hàm
 
 
     //////////     HÀM THÊM SẢN PHẨM VÀO BẢNG       ////////////
@@ -122,19 +124,20 @@
         }
     }
 
+
     //////////    HÀM SỬA SẢN PHẨM     ////////////
     var value = "";                                                     //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
     function editProduct(index) {
-        document.getElementById("editProduct").value = arrayProduct[index]; //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
+        let newEdit = document.getElementById("editProduct")
+        newEdit.value = arrayProduct[index];                            //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
         value = index;                                                  // gán biến value bằng vị trí của phần tử trong mảng
     }
 
 
-
     //////////    HÀM LƯU SẢN PHẨM SAU KHI ĐÃ SỬA     ////////////
     function save() {
-        let result = document.getElementById("editProduct").value;
-        arrayProduct[value] = result;                                   //Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
+        let result = document.getElementById("editProduct");
+        arrayProduct[value] = result.value;                             //Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
 
         document.getElementById("editProduct").value = "";
         displayProduct();                                               //Vẽ lại bảng sau khi đã sửa sản phẩm
