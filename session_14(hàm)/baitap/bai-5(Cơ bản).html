@@ -28,20 +28,20 @@
 
 <script>
     let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
-    function displayProduct() {  //Tạo bảng sản phẩm
+    function displayProduct() {                                     //Tạo bảng sản phẩm
         let productTable = ' <table border="1"  cellspacing="1" cellpadding="20">'
-        productTable += '<tr>'
-        productTable += '<th>Product Name</th>' //Tạo Cột tên sản phẩm
-        productTable += '<th colspan="2">Action</th>' //Tạo Cột chưa nút
-        productTable += '<th class="count">' + arrayProduct.length + 'Product</th>' //Tạo Cột số lượng sản phẩm
-        productTable += '</tr>'
+            + '<tr>'
+            + '<th>Product Name</th>'                               //Tạo Cột tên sản phẩm
+            + '<th colspan="2">Action</th>'                         //Tạo Cột chưa nút
+            + '<th class="count">' + arrayProduct.length + 'Product</th>' //Tạo Cột số lượng sản phẩm
+            + '</tr>'
 
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += "<tr>"
-            productTable += "<td>" + arrayProduct[i] + "</td>" //Tạo tên sản phẩm
-            productTable += "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm)
-            productTable += "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm)
-            productTable += "</tr>"
+                + "<td>" + arrayProduct[i] + "</td>"                //Tạo tên sản phẩm
+                + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm)
+                + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm)
+                + "</tr>"
         }
         productTable += `</table>`
 
@@ -52,34 +52,34 @@
     //Thêm sản  phẩm
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value; //Gán biến bằng giá trị nhập vào của ô input thêm sản phẩm
-        arrayProduct.push(valueAdd);// Sử dụng push để thêm sản phẩm mới vào cuối mảng sản phẩm đã có
+        arrayProduct.push(valueAdd);                                // Sử dụng push để thêm sản phẩm mới vào cuối mảng sản phẩm đã có
 
-        document.getElementById("addProduct").value = "";// Sau khi thêm sản phẩm ô input rỗng
-        displayProduct();//Vẽ lại bảng sau khi đã thêm sản phẩm
+        document.getElementById("addProduct").value = "";           // Sau khi thêm sản phẩm ô input rỗng
+        displayProduct();                                           //Vẽ lại bảng sau khi đã thêm sản phẩm
     }
 
     //Xóa sản phẩm
     function deleteProduct(index) {
         if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {//Nếu nhấn oke ở nút confirm thì mới cho xóa
-            arrayProduct.splice(index, 1); // Dùng hàm splice để xóa sản phẩm ở hàng tương ứng với nút delete
-            displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
+            arrayProduct.splice(index, 1);                              // Dùng hàm splice để xóa sản phẩm ở hàng tương ứng với nút delete
+            displayProduct();                                           //Vẽ lại bảng sau khi đã xóa sản phẩm
         }
     }
 
     //Sửa sản phẩm
-    var value = ""; //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
+    var value = "";                                                     //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
     function editProduct(index) {
         document.getElementById("editProduct").value = arrayProduct[index]; //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
-        value = index; // gán biến value bằng vị trí của phần tử trong mảng
+        value = index;                                                  // gán biến value bằng vị trí của phần tử trong mảng
     }
 
     //Lưu sản phẩm đã sửa
     function save() {
         let result = document.getElementById("editProduct").value;
-        arrayProduct[value] = result;//Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
+        arrayProduct[value] = result;                                   //Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
 
         document.getElementById("editProduct").value = "";
-        displayProduct();//Vẽ lại bảng sau khi đã sửa sản phẩm
+        displayProduct();                                               //Vẽ lại bảng sau khi đã sửa sản phẩm
     }
 
 </script>
