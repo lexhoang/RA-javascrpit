@@ -146,6 +146,7 @@
     }
     displayProduct();
 
+
     //////////     HÀM THÊM SẢN PHẨM VÀO BẢNG       ////////////
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value;
@@ -154,6 +155,7 @@
         document.getElementById("addProduct").value = "";
         displayProduct();       //Vẽ lại bảng sau khi đã thêm sản phẩm
     }
+
 
     //////////     HÀM XÓA SẢN PHẨM      ////////////
     function deleteProduct(index) {
@@ -165,7 +167,6 @@
 
 
     //////////    HÀM SỬA SẢN PHẨM     ////////////
-
     var value = "";         //Tạo biến lưu thứ tự sản phẩm được chọn
 
     function editProduct(index) {
@@ -183,6 +184,7 @@
         editProduct[index].value = arrayProduct[index];
         value = index;                              //lưu vị trí phần tử đã chọn vào biến value vừa tạo
     }
+
 
     //////////    HÀM LƯU SẢN PHẨM SAU KHI ĐÃ SỬA     ////////////
     function saveEdit() {
