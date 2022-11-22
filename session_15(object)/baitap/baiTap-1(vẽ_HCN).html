@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeHinhChuNhat</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+    <p>Chiều dài: 375cm; Chiều rộng: 200cm</p>
+    <h4>Diện tích hcn: 75.000cm</h4>
+    <h4>CHu vi hcn: 1.150cm</h4>
+</body>
+
+<script>
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(10, 10, 150, 80);// 375-200
+</script>
+
+</html>
