@@ -110,6 +110,8 @@
 <script>
     let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
     let result = document.getElementById("result");
+
+    //////////     HÀM TẠO BẢNG       ////////////
     function displayProduct() {
         let productTable = `
         <table  cellspacing="1" cellpadding="20">
@@ -137,36 +139,34 @@
                         </td>
                     </tr>
             `
-            // productTable += "<tr>"
-            // productTable += "<td>" + arrayProduct[i] + "</td>"
-            // productTable += "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>"
-            // productTable += "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>"
-            // productTable += "</tr>"
         }
         productTable += `</table>`
         result.innerHTML = productTable;
     }
     displayProduct();
 
-    // Thêm sản phẩm
+    //////////     HÀM THÊM SẢN PHẨM VÀO BẢNG       ////////////
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value;
         arrayProduct.push(valueAdd);
 
         document.getElementById("addProduct").value = "";
-        displayProduct(); //Vẽ lại bảng sau khi đã thêm sản phẩm
+        displayProduct();       //Vẽ lại bảng sau khi đã thêm sản phẩm
     }
 
-    //Xóa sản phẩm
+    //////////     HÀM XÓA SẢN PHẨM      ////////////
     function deleteProduct(index) {
         if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {
             arrayProduct.splice(index, 1);
-            displayProduct();//Vẽ lại bảng sau khi đã xóa sản phẩm
+            displayProduct();   //Vẽ lại bảng sau khi đã xóa sản phẩm
         }
     }
 
-    var value = "";//Tạo biến lưu thứ tự sản phẩm được chọn
-    //Sửa sản phẩm
+
+    //////////    HÀM SỬA SẢN PHẨM     ////////////
+
+    var value = "";         //Tạo biến lưu thứ tự sản phẩm được chọn
+
     function editProduct(index) {
         let name = document.querySelectorAll(".name");
         name[index].style.display = "none"
@@ -180,13 +180,14 @@
         let editProduct = document.querySelectorAll(".editProduct");
         editProduct[index].style.display = "block"
         editProduct[index].value = arrayProduct[index];
-        value = index;
+        value = index;                              //lưu vị trí phần tử đã chọn vào biến value vừa tạo
     }
-    //Lưu sản phẩm sau khi sửa
+
+    //////////    HÀM LƯU SẢN PHẨM SAU KHI ĐÃ SỬA     ////////////
     function saveEdit() {
         let result = document.querySelectorAll(".editProduct");
-        arrayProduct[value] = result[value].value;
-        displayProduct();//Vẽ lại bảng sau khi đã sửa sản phẩm
+        arrayProduct[value] = result[value].value;      //thay đổi giá trị cho mảng sau khi sửa
+        displayProduct();       //Vẽ lại bảng sau khi đã sửa
     }
 
 </script>
