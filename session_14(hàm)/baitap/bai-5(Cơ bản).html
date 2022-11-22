@@ -6,6 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UngDungQuanLySanPham</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            /* background-color: #eee; */
+            padding: 12px
+        }
+
+        .add {
+            background-color: #ddd;
+            width: 70%;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .save {
+            background-color: #ddd;
+            width: 70%;
+            text-align: center;
+            padding: 8px;
+        }
+
+        input {
+            width: 70%;
+            height: 24px;
+            border: none;
+            text-align: center
+        }
+
+        button {
+            background-color: rgb(9, 176, 9);
+            color: #fff;
+            border: 2px solid rgb(137, 136, 136);
+            width: 60px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(6, 105, 6);
+
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+
+        table th {
+            background-color: #fff;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +68,7 @@
             <button onclick="addProduct()">Add</button>
         </div>
         <br>
-        <div class="edit">
+        <div class="save">
             <input type="text" placeholder="Edit product" id="editProduct" />
             <button onclick="save()">Save</button>
         </div>
@@ -28,19 +80,20 @@
 
 <script>
     let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
+
     function displayProduct() {                                     //Tạo bảng sản phẩm
-        let productTable = ' <table border="1"  cellspacing="1" cellpadding="20">'
+        let productTable = ' <table border="0"  cellspacing="0" cellpadding="20">'
             + '<tr>'
             + '<th>Product Name</th>'                               //Tạo Cột tên sản phẩm
             + '<th colspan="2">Action</th>'                         //Tạo Cột chưa nút
-            + '<th class="count">' + arrayProduct.length + 'Product</th>' //Tạo Cột số lượng sản phẩm
+            + '<th class="count" style="color:red">' + arrayProduct.length + ' Product</th>' //Tạo Cột số lượng sản phẩm
             + '</tr>'
 
         for (let i = 0; i < arrayProduct.length; i++) {
             productTable += "<tr>"
                 + "<td>" + arrayProduct[i] + "</td>"                //Tạo tên sản phẩm
-                + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm)
-                + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm)
+                + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
+                + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
                 + "</tr>"
         }
         productTable += `</table>`
