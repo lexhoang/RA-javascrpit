@@ -81,6 +81,7 @@
 <script>
     let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
 
+    //////////     HÀM TẠO BẢNG       ////////////
     function displayProduct() {                                     //Tạo bảng sản phẩm
         let productTable = ' <table border="0"  cellspacing="0" cellpadding="20">'
             + '<tr>'
@@ -102,7 +103,8 @@
     }
     displayProduct();//Gọi lại hàm để chạy hàm
 
-    //Thêm sản  phẩm
+
+    //////////     HÀM THÊM SẢN PHẨM VÀO BẢNG       ////////////
     function addProduct() {
         let valueAdd = document.getElementById("addProduct").value; //Gán biến bằng giá trị nhập vào của ô input thêm sản phẩm
         arrayProduct.push(valueAdd);                                // Sử dụng push để thêm sản phẩm mới vào cuối mảng sản phẩm đã có
@@ -111,7 +113,8 @@
         displayProduct();                                           //Vẽ lại bảng sau khi đã thêm sản phẩm
     }
 
-    //Xóa sản phẩm
+
+    //////////     HÀM XÓA SẢN PHẨM      ////////////
     function deleteProduct(index) {
         if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {//Nếu nhấn oke ở nút confirm thì mới cho xóa
             arrayProduct.splice(index, 1);                              // Dùng hàm splice để xóa sản phẩm ở hàng tương ứng với nút delete
@@ -119,14 +122,16 @@
         }
     }
 
-    //Sửa sản phẩm
+    //////////    HÀM SỬA SẢN PHẨM     ////////////
     var value = "";                                                     //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
     function editProduct(index) {
         document.getElementById("editProduct").value = arrayProduct[index]; //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
         value = index;                                                  // gán biến value bằng vị trí của phần tử trong mảng
     }
 
-    //Lưu sản phẩm đã sửa
+
+
+    //////////    HÀM LƯU SẢN PHẨM SAU KHI ĐÃ SỬA     ////////////
     function save() {
         let result = document.getElementById("editProduct").value;
         arrayProduct[value] = result;                                   //Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
