@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baiTap-2</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let Temperature = function (tempC) {
+        this.tempC = tempC;
+
+        this.getTempF = function () {
+            return this.tempC * 9 / 5 + 32
+        }
+        this.getTempKevin = function () {
+            return this.tempC + 273.15
+        }
+    }
+
+    let temperature = new Temperature(parseFloat(prompt("Nhập độ C")));
+
+    alert("Temp F: " + temperature.getTempF() + " ; " + "Temp Kevin: " + temperature.getTempKevin());
+</script>
+
+</html>
