@@ -49,13 +49,12 @@
 <script>
     let check = false;
 
-    function Mobile(battery, status, draf_mess, receive_mess, send_mess, arrReceive) {
+    function Mobile(battery, status, draf_mess, receive_mess, send_mess) {
         this.battery = battery;
         this.status = status;
         this.draf_mess = draf_mess;
         this.recieve_mess = receive_mess;
         this.send_mess = send_mess
-        this.arrReceive = arrReceive;
 
         //BATTERY
         this.chargeBattery = function () {
@@ -94,7 +93,7 @@
                 this.status = false;
                 alert("Vui lòng bật máy")
             } else {
-                let drafMessage = [prompt("Nhập")]
+                let drafMessage = prompt("Nhập")
                 this.draf_mess.push(drafMessage);
                 return drafMessage;
             }
@@ -107,7 +106,7 @@
                 this.status = false;
                 alert("Vui lòng bật máy")
             } else {
-                let recieveMessage = [prompt("Nhập")]
+                let recieveMessage = prompt("Nhập")
                 this.recieve_mess.push(recieveMessage);
                 return recieveMessage;
             }
@@ -120,7 +119,7 @@
                 this.status = false;
                 alert("Vui lòng bật máy")
             } else {
-                let sendMessage = [prompt("Nhập")]
+                let sendMessage = prompt("Nhập")
                 this.send_mess.push(sendMessage);
                 return sendMessage;
             }
@@ -129,7 +128,7 @@
 
 
 
-    let nokia = new Mobile(100, true, [], [], [], "");
+    let nokia = new Mobile(100, true, [], [], [])
     console.log(nokia);
 
     //PIN
