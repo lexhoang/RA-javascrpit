@@ -10,7 +10,7 @@
 
 <body>
     <script>
-        /* Xây dựng lơp person
+        /* Xây dựng lớp person
                 Thuộc tính:
                     Tên
                     Tuổi
@@ -32,7 +32,7 @@
                 console.log("Xin chào");
             }
             this.wakeup = function (time) {
-                console.log(("Tôi thức dạy lúc ", time));
+                console.log("Tôi thức dạy lúc ", time);
             }
             this.eat = function () {
                 console.log("Tôi vừa ăn pizza");
@@ -42,12 +42,12 @@
         //Khỏi tạo đối tượng từ lớp
         let person_1 = new person("Nguyễn Văn A", 20, true, "Hà Nội", "Bóng đá");
         person_1.id = "P001";
-        person_1.wakeup(2)
         console.log("person_1: ", person_1);
 
         let person_2 = new person("Nguyễn Văn B", 30, false, "Đà Nẵng", "Bóng đá");
         person_2.id = "P002";
         console.log("person_2: ", person_2);
+        person_2.wakeup(8);
 
     </script>
 </body>

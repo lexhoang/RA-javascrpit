@@ -59,10 +59,11 @@
         //Gọi hành vi love của đối tượng person
         console.log(person.love());
 
-        //Gọi hành vi hello của đối tượng person
-        console.log(student.hello());
 
-
+        //Sử dụng vòng lặp for-in để duyệt các tên thuộc tính của các đối tượng
+        for (const key in student) {
+            console.log(student[key]);
+        }
     </script>
 </body>
 
