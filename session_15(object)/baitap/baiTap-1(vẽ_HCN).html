@@ -10,12 +10,47 @@
 
 <body>
     <canvas id="myCanvas" width="200" height="100"></canvas>
-    <p>Chiều dài: 375cm; Chiều rộng: 200cm</p>
-    <h4>Diện tích hcn: 75.000cm</h4>
-    <h4>CHu vi hcn: 1.150cm</h4>
+    <p id="widthHeight"></p>
+    <p id="areaPerimeter"></p>
+    <br>
+    <p id="changeWidthHeight"></p>
+    <p id="changeAreaPerimeter"></p>
 </body>
 
 <script>
+    //B1: Khởi tạo lớp Rectangle gồm width, height, getArea, getPerimeter
+    function rectangle(width, height) {
+        //Khai báo và khỏi tạo thuộc tính
+        this.width = width;
+        this.height = height;
+
+        this.getArea = function () {
+            return this.width * this.height;
+        }
+
+        this.getPerimeter = function () {
+            return (this.width + this.height) * 2;
+        }
+    }
+
+    //B2: Khởi tạo đối tượng
+    let hcn = new rectangle(80, 150);
+
+    //B3: In ra diện tích và chu vi hình chữ nhật
+    document.getElementById("widthHeight").innerHTML = "Chiều rộng: " + hcn.width + " ; Chiều dài: " + hcn.height
+    document.getElementById("areaPerimeter").innerHTML = "Diện tích: " + hcn.getArea() + " ; Chu vi: " + hcn.getPerimeter();
+
+    //B4: Thay đổi giá trị cho width và height
+    hcn.width = 50;
+    hcn.height = 50;
+    document.getElementById("changeWidthHeight").innerHTML = "Chiều rộng thay đổi: " + hcn.width + " ; Chiều dài thay đổi: " + hcn.height
+    document.getElementById("changeAreaPerimeter").innerHTML = "Diện tích thay đổi: " + hcn.getArea() + " ; Chu vi thay đổi: " + hcn.getPerimeter();
+
+
+    console.log(hcn);
+
+
+    //VẼ CANVAS
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d");
     ctx.fillStyle = "red";
