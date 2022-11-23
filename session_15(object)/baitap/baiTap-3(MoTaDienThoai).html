@@ -54,7 +54,7 @@
         this.status = status;
         this.draf_mess = draf_mess;
         this.recieve_mess = receive_mess;
-        this.send_mess = send_mess
+        this.send_mess = send_mess;
 
         //BATTERY
         this.chargeBattery = function () {
@@ -71,7 +71,7 @@
                 this.status = true;
                 return "Đang bật";
             } else {
-                this.status = true;
+                this.status = false;
                 return "Đang tắt"
             }
         }
@@ -136,9 +136,9 @@
     document.getElementById("pin").innerHTML = "Pin " + nokia.battery + "%"
     //Pin thay đổi
     function onBatteryChange() {
+        console.log("Trạng thái pin: " + nokia.battery + "%");
         let changePin = nokia.chargeBattery()
-        // console.log(nokia.battery);
-        console.log(changePin);
+        console.log("Pin được sạc đầy: " + changePin + "%");
         document.getElementById("changePin").innerHTML = "Điện thoại đã được sạc đầy"
 
         document.getElementById("pin").innerHTML = "Pin " + nokia.battery + "%"
@@ -152,7 +152,7 @@
             document.getElementById("statusOn-Off").innerHTML = "Trạng thái: " + checkStatus;
 
             let changeStatus = nokia.setStatus(true);
-            console.log(nokia.checkStatus());
+            console.log(nokia.checkStatus(true));
             console.log(nokia.setStatus(true));
         } else {
             nokia.status = false
@@ -160,7 +160,7 @@
             document.getElementById("statusOn-Off").innerHTML = "Trạng thái: " + checkStatus;
 
             let changeStatus = nokia.setStatus(false);
-            console.log(nokia.checkStatus());
+            console.log(nokia.checkStatus(false));
             console.log(nokia.setStatus(false));
         }
     }
