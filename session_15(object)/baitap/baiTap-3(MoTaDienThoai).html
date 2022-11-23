@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô tả điện thoại</title>
+    <script src="https://kit.fontawesome.com/68734f4fab.js" crossorigin="anonymous"></script>
+
+    <style>
+        button:hover {
+            cursor: pointer;
+        }
+
+        .turnOff {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 id="pin"></h3>
+    <button onclick="onBatteryChange();">Sạc pin</button>
+    <p id="changePin"></p>
+    <hr>
+
+    <button onclick="turnOn_TurnOff()" class="turnOff">
+        <i class="fa-solid fa-power-off"></i>
+    </button>
+    <p id="statusOn-Off"></p>
+    <hr>
+
+    <button onclick="drafMessage()">Tin nhắn nháp</button>
+    <p id="draf_message"></p>
+    <hr>
+
+    <button onclick="receiveMessage()">Tin nhắn đến</button>
+    <p id="receive_message"></p>
+    <hr>
+
+    <button onclick="sendMessage()">Tin nhắn gửi</button>
+    <p id="send_message"></p>
+
+</body>
+
+<script>
+    let check = false;
+
+    function Mobile(battery, status, draf_mess, receive_mess, send_mess, arrReceive) {
+        this.battery = battery;
+        this.status = status;
+        this.draf_mess = draf_mess;
+        this.recieve_mess = receive_mess;
+        this.send_mess = send_mess
+        this.arrReceive = arrReceive;
+
+        //BATTERY
+        this.chargeBattery = function () {
+            for (var i = this.battery; i < 100; i++) {
+                this.battery++
+            }
+            return this.battery;
+        }
+
+
+        //STATUS
+        this.checkStatus = function (status) {
+            if (status == true) {
+                this.status = true;
+                return "Đang bật";
+            } else {
+                this.status = true;
+                return "Đang tắt"
+            }
+        }
+        //Change status
+        this.setStatus = function (status) {
+            if (status == true) {
+                this.status = true;
+                return "Điện thoại đã được bật";
+            } else {
+                this.status = false;
+                return "Điện thoại đã được tắt";
+            }
+        }
+
+
+        // TIN NHẮN NHÁP
+        this.getDrafMessage = function () {
+            if (this.status == false || this.battery == 0) {
+                this.status = false;
+                alert("Vui lòng bật máy")
+            } else {
+                let drafMessage = [prompt("Nhập")]
+                this.draf_mess.push(drafMessage);
+                return drafMessage;
+            }
+        }
+
+
+        // TIN NHẮN ĐẾN
+        this.getReceiveMessage = function () {
+            if (this.status == false || this.battery == 0) {
+                this.status = false;
+                alert("Vui lòng bật máy")
+            } else {
+                let recieveMessage = [prompt("Nhập")]
+                this.recieve_mess.push(recieveMessage);
+                return recieveMessage;
+            }
+        }
+
+
+        // TIN NHẮN ĐI
+        this.getSendMessage = function () {
+            if (this.status == false || this.battery == 0) {
+                this.status = false;
+                alert("Vui lòng bật máy")
+            } else {
+                let sendMessage = [prompt("Nhập")]
+                this.send_mess.push(sendMessage);
+                return sendMessage;
+            }
+        }
+    }
+
+
+
+    let nokia = new Mobile(100, true, [], [], [], "");
+    console.log(nokia);
+
+    //PIN
+    nokia.battery = 80;
+    document.getElementById("pin").innerHTML = "Pin " + nokia.battery + "%"
+    //Pin thay đổi
+    function onBatteryChange() {
+        let changePin = nokia.chargeBattery()
+        // console.log(nokia.battery);
+        console.log(changePin);
+        document.getElementById("changePin").innerHTML = "Điện thoại đã được sạc đầy"
+
+        document.getElementById("pin").innerHTML = "Pin " + nokia.battery + "%"
+    }
+
+
+    //TRẠNG THÁI BẬT TẮT
+    function turnOn_TurnOff() {
+        if (confirm("Bật-Tắt điện thoại")) {
+            let checkStatus = nokia.checkStatus(true);
+            document.getElementById("statusOn-Off").innerHTML = "Trạng thái: " + checkStatus;
+
+            let changeStatus = nokia.setStatus(true);
+            console.log(nokia.checkStatus());
+            console.log(nokia.setStatus(true));
+        } else {
+            nokia.status = false
+            let checkStatus = nokia.checkStatus(false);
+            document.getElementById("statusOn-Off").innerHTML = "Trạng thái: " + checkStatus;
+
+            let changeStatus = nokia.setStatus(false);
+            console.log(nokia.checkStatus());
+            console.log(nokia.setStatus(false));
+        }
+    }
+
+
+    //TIN NHẮN NHÁP
+    function drafMessage() {
+        console.log("Các tin nhắn nháp: " + nokia.getDrafMessage());
+        console.log(nokia.draf_mess);
+        document.getElementById("draf_message").innerHTML = nokia.draf_mess
+    }
+
+
+    //TIN NHẮN ĐẾN
+    function receiveMessage() {
+        console.log("Các tin nhắn gửi đã nhận: " + nokia.getReceiveMessage());
+        console.log(nokia.recieve_mess);
+        document.getElementById("receive_message").innerHTML = nokia.recieve_mess
+    }
+
+
+    //TIN NHẮN ĐI
+    function sendMessage() {
+        console.log("Các tin nhắn gửi đã gửi: " + nokia.getSendMessage());
+        console.log(nokia.send_mess);
+        document.getElementById("send_message").innerHTML = nokia.send_mess
+    }
+
+</script>
+
+</html>
