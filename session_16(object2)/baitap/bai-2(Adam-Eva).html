@@ -13,75 +13,66 @@
 </body>
 
 <script>
-    class Apple {
-        weight;
+    function Apple(weight) {
 
-        constructor() {
-            this.weight = 10;
-        }
+        this.weight = 10;
 
-        decrease() {
+        this.decrease = function () {
             if (!this.isEmpty()) {
                 this.weight--;
             }
         }
 
-        isEmpty() {
+        this.isEmpty = function () {
             if (this.weight == 0) {
                 return true;
             }
             return false;
         }
 
-        getWeight() {
+        this.getWeight = function () {
             return this.weight;
         }
     }
 
-    class Human {
-        name;
-        gender;
-        weight;
+    function Human(gender, apple, string, name, weight) {
 
-        constructor() { }
-
-        isMale() {
+        this.isMale = function () {
             return this.gender ? true : false;
         }
 
-        setGender(gender) {
+        this.setGender = function (gender) {
             this.gender = gender;
         }
 
-        checkApple(apple) {
+        this.checkApple = function (apple) {
             return apple.isEmpty() ? false : true;
         }
 
-        eat(apple) {
+        this.eat = function (apple) {
             apple.decrease();
         }
 
-        say(string) {
+        this.say = function (string) {
             console.log(string);
             document.write(string + "<br/>")
         }
 
-        getName() {
+        this.getName = function () {
             return this.name;
         }
 
-        setName(name) {
+        this.setName = function (name) {
             this.name = name;
         }
 
-        getWeight() {
+        this.getWeight = function () {
             return this.weight;
         }
 
-        setWeight(weight) {
+        this.setWeight = function (weight) {
             this.weight = weight;
         }
-
     }
 
     let apple = new Apple();
