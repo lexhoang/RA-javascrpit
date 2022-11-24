@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #result {
+        position: relative;
+        top: 50px
+    }
+</style>
+
+<body>
+    <button onclick="Eon()">On</button>
+    <button onclick="Eoff()">Off</button>
+
+    <div id="result"></div>
+</body>
+<script>
+    function ElectricLamp(status) {
+        this.status = false
+
+        this.turnOn = function () {
+            return this.status = true
+        }
+        this.turnOff = function () {
+            return this.status = false
+        }
+    }
+
+    function SwitchButton(status, electricLamp) {
+        this.status = false
+
+        this.connectToLamp = function (electricLamp) {
+            return this.electricLamp = electricLamp
+        }
+        this.switchOn = function () {
+            this.status = true
+            return this.electricLamp.turnOn()
+        }
+        this.switchOff = function () {
+            this.status = false
+            return this.electricLamp.turnOff()
+        }
+    }
+
+    let electricLamp = new ElectricLamp()
+    let switchButton = new SwitchButton()
+    switchButton.connectToLamp(10)
+
+    function Eon() {
+        switchButton.connectToLamp(electricLamp)
+        if (switchButton.switchOn()) {
+            document.getElementById("result").innerHTML = electricLamp.status;
+            console.log(electricLamp.status);
+        }
+    }
+
+    function Eoff() {
+        if (switchButton.connectToLamp(electricLamp)) {
+            document.getElementById("result").innerHTML = switchButton.switchOff();
+            console.log(switchButton.switchOff());
+        }
+
+    }
+</script>
+
+</html>
