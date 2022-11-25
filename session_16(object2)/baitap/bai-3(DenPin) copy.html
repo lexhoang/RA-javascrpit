@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CongTac</title>
+    <title>DenPin</title>
 </head>
 
 <body>
-    <button onclick="btnOn()">Turn On</button>
+    <button onclick="turnOn()">Turn On</button>
     <img id="img" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="">
-    <button onclick="btnOff()">Turn Off</button>
+    <button onclick="turnOff()">Turn Off</button>
 
-    <p id="status"></p>
+    <p id="status"></pì>
 </body>
-
 <script>
     function ElectricLamp() {
         this.status = false;
@@ -23,6 +22,7 @@
         this.turnOn = function () {
             return this.status = true;
         }
+
         this.turnOff = function () {
             return this.status = false;
         }
@@ -30,16 +30,14 @@
 
     function SwitchButton() {
         this.status = false;
-        this.electricLamp = ElectricLamp;
 
         this.connectToLamp = function (ElectricLamp) {
-            return this.electricLamp = ElectricLamp;
+            return this.electricLamp = ElectricLamp
         }
         this.switchOn = function () {
-            this.status = true;
+            this.status = true
             return this.electricLamp.turnOn()
         }
-
         this.switchOff = function () {
             this.status = false;
             return this.electricLamp.turnOff()
@@ -51,22 +49,23 @@
     switchButton.connectToLamp(10);
     console.log(switchButton);
 
-    function btnOn() {
-        if (switchButton.connectToLamp(electricLamp)) {
-            console.log(electricLamp.turnOn());
+    function turnOn() {
+        switchButton.connectToLamp(electricLamp);
+        if (switchButton.switchOn()) {
+            console.log("Trạng thái: " + electricLamp.status);
+            console.log(switchButton);
 
             document.getElementById("img").src = "https://www.w3schools.com/js/pic_bulbon.gif";
-            document.getElementById("status").innerHTML = "Trạng thái: Đang bật"
+            document.getElementById("status")
         }
     }
 
-    function btnOff() {
+    function turnOff() {
         if (switchButton.connectToLamp(electricLamp)) {
-            console.log(electricLamp.turnOff());
+            console.log("Trạng thái: " + switchButton.switchOff());
+            console.log(switchButton);
 
             document.getElementById("img").src = "https://www.w3schools.com/js/pic_bulboff.gif"
-            document.getElementById("status").innerHTML = "Trang thái: Đang tắt"
-
         }
     }
 </script>
