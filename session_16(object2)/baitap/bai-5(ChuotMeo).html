@@ -59,11 +59,11 @@
                 console.log("Đuổi chuột");
                 console.log("Đã bắt được chuột");
                 check = true;
-                return "Cân nặng hiện tại: " + this.weight;
+                return "Cân nặng hiện tại của mèo: " + this.weight;
             } else {
                 console.log("Đuổi chuột");
                 console.log("Con này nhanh thật, chắc mình béo rồi");
-                return "Cân nặng hiện tại: " + this.weight;
+                return "Cân nặng hiện tại của mèo: " + this.weight;
             }
         }
 
@@ -73,14 +73,14 @@
                     console.log("Con này béo ngon quá!");
                     mouse.setStatusRat(false);
                     console.log("Quá ngon!");
-                    return "Cân nặng sau khi ăn: " + (this.weight += mouse.weightRat());
+                    return "Cân nặng sau khi ăn chuột: " + (this.weight += mouse.weightRat());
                 } else {
                     console.log("Con này chết rồi, thúi quá không thèm ăn!");
-                    return "Cân nặng hiện tại: " + this.weight;
+                    return "Cân nặng hiện tại của mèo: " + this.weight;
                 }
             } else {
                 console.log("Thôi tha cho nó!");
-                return "Cân nặng hiện tại: " + this.weight;
+                return "Cân nặng hiện tại của mèo: " + this.weight;
             }
         }
     }
