@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MèoBatChuot</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    function Rat(name, weight, speed, status) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+
+        this.talkRat = function () {
+            return "Chít chít";
+        }
+        this.weightRat = function () {
+            return this.weight;
+        }
+        this.getSpeedRat = function () {
+            return this.speed;
+        }
+        this.getStatusRat = function () {
+            return this.status;
+        }
+        this.setSpeedRat = function (speed) {
+            this.speed = speed;
+        }
+        this.setStatusRat = function (status) {
+            this.status = status
+        }
+    }
+
+    function Cat(name, weight, speed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = speed;
+        this.talkCat = function () {
+            return "Meo meo";
+        }
+        this.weightCat = function () {
+            return this.weight;
+        }
+        this.getSpeedCat = function () {
+            return this.speed;
+        }
+
+        let check = false;
+        this.catchMouse = function (mouse) {
+            if (this.maxSpeed > mouse.speed) {
+                console.log("Đuổi chuột");
+                console.log("Đã bắt được chuột");
+                check = true;
+                return "Cân nặng hiện tại: " + this.weight;
+            } else {
+                console.log("Con này nhanh thật, chắc mình béo rồi");
+                return "Cân nặng hiện tại: " + this.weight;
+            }
+        }
+
+        this.eatMouse = function (mouse) {
+            if (check == true) {
+                if (mouse.getStatusRat()) {
+                    console.log("Con này béo ngon quá!");
+                    mouse.setStatusRat(false);
+                    console.log("Quá ngon!");
+                    return "Cân nặng sau khi ăn: " + (this.weight += mouse.weightRat());
+                } else {
+                    console.log("Con này chết rồi, thúi quá không thèm ăn!");
+                    return "Cân nặng hiện tại: " + this.weight;
+                }
+            } else {
+                console.log("Thôi tha cho nó!");
+                return "Cân nặng hiện tại: " + this.weight;
+            }
+        }
+    }
+
+    let mouse = new Rat("Rat1", 1, 20, false);
+    let cat = new Cat("Cat", 5, 30);
+
+    console.log("%c Bắt chuột: ", "font-style:italic; color:blue; font-size:24px");
+    console.log(cat.catchMouse(mouse));
+    console.log("");
+
+    console.log("%c Ăn chuột: ", "font-style:italic;font-size:24px; color:red");
+    console.log(cat.eatMouse(mouse));
+
+</script>
+
+</html>
