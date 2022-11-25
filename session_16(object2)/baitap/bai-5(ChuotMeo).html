@@ -61,6 +61,7 @@
                 check = true;
                 return "Cân nặng hiện tại: " + this.weight;
             } else {
+                console.log("Đuổi chuột");
                 console.log("Con này nhanh thật, chắc mình béo rồi");
                 return "Cân nặng hiện tại: " + this.weight;
             }
@@ -84,7 +85,7 @@
         }
     }
 
-    let mouse = new Rat("Rat1", 1, 20, false);
+    let mouse = new Rat("Rat1", 1, 10, false);
     let cat = new Cat("Cat", 5, 30);
 
     console.log("%c Bắt chuột: ", "font-style:italic; color:blue; font-size:24px");
