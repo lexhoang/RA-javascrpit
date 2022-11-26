@@ -26,20 +26,28 @@
         this.getStatus = function () {
             return this.status;
         }
+
+        this.turnOn = function () {
+            return this.status = true
+        }
+        this.turnOff = function () {
+            return this.status = false
+        }
+
         this.plusVolume = function () {
-            this.volume++;
+            return this.volume++;
         }
         this.decreaseVolume = function () {
-            this.volume--;
+            return this.volume--;
         }
         this.plusChannel = function () {
-            this.chanel++
+            return this.chanel++
         }
         this.decreaseChannel = function () {
-            this.chanel--;
+            return this.chanel--;
         }
         this.controlChannel = function (chanel) {
-            this.chanel = chanel;
+            return this.chanel = chanel;
         }
     }
 
@@ -50,37 +58,38 @@
         this.onOfftv = function (tv) {
             tv.status = !tv.status;
         }
+
         this.plusVolume = function (tv) {
             if (tv.getStatus()) {
-                tv.plusVolume();
+                return tv.plusVolume();
             } else {
                 console.log("TV đang tắt");
             }
         }
         this.decreaseVolume = function (tv) {
             if (tv.getStatus()) {
-                tv.decreaseVolume();
+                return tv.decreaseVolume();
             } else {
                 console.log("TV đang tắt");
             }
         }
         this.plusChannel = function (tv) {
             if (tv.getStatus()) {
-                tv.plusChannel();
+                return tv.plusChannel();
             } else {
                 console.log("TV đang tắt");
             }
         }
         this.decreaseChannel = function (tv) {
             if (tv.getStatus()) {
-                tv.decreaseChannel();
+                return tv.decreaseChannel();
             } else {
                 console.log("TV đang tắt");
             }
         }
         this.controlChannel = function (tv, chanel) {
             if (tv.getStatus()) {
-                tv.controlChannel(chanel);
+                return tv.controlChannel(chanel);
             } else {
                 console.log("TV đang tắt");
             }
@@ -89,6 +98,29 @@
 
     let tv = new TV(0, 0);
     let remote = new Remote(1234);
+
+    console.log("Trạng thái");
+    console.log(tv.getStatus());
+    console.log(tv.turnOn());
+
+    console.log("");
+    console.log("Kênh");
+    console.log(tv.getChannel());
+    console.log(tv.controlChannel(2));
+    console.log(tv.plusChannel());
+    console.log(remote.plusChannel(tv));
+    console.log(tv.decreaseChannel());
+    console.log(remote.decreaseChannel(tv));
+
+    console.log("");
+    console.log("Âm lượng");
+    console.log(tv.getVolume());
+    console.log(tv.plusVolume());
+    console.log(remote.plusVolume(tv));
+    console.log(tv.decreaseVolume());
+    console.log(remote.decreaseVolume(tv));
+
+
 </script>
 
 </html>
