@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlappyBird</title>
     <style>
-
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body onload="onPageLoad()">
-    <canvas id="game" width="900" height="500"></canvas>
-    <h3 id="score">scores: 0</h3>
+    <div class="container">
+        <canvas id="game" width="900" height="500"></canvas>
+        <h3 id="score">scores: 0</h3>
+    </div>
 </body>
 
 <script>
