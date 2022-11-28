@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thucHanh1</title>
+</head>
+
+<body>
+    <h2>Clock Simple</h2>
+    <p id="date-time"></p>
+</body>
+<script>
+    function runClock() {
+        let today = new Date();
+        let date = "Date: " + today.getDate() + '-'
+            + (today.getMonth() + 1) + '-'
+            + today.getFullYear();
+        let time = "Time: " + today.getHours() + ":"
+            + today.getMinutes() + ":"
+            + today.getSeconds();
+        let dateTime = date + "<br/>" + time;
+        document.getElementById("date-time").innerHTML = dateTime
+    }
+    let myInterval = setInterval(runClock, 1000)
+    runClock();
+</script>
+
+</html>

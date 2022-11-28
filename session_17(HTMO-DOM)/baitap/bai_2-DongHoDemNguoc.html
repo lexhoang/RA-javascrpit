@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DongHoDemNguoc</title>
+    <style>
+        .container {
+            width: 200px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            min-width: 40px
+        }
+
+        input {
+            width: 80px
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        button {
+            width: 80px;
+        }
+
+        .countdownTime {
+            font-size: 24px;
+            background-color: red;
+            padding: 12px;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Clock Countdown</h2>
+        <button id="start">Start</button><br><br>
+        <div>
+            <label> Giờ:</label>
+            <input type="text" id="hour" placeholder="nhập số giờ"><br>
+
+            <label> Phút:</label>
+            <input type="text" id="minute" placeholder="nhập số phút"><br>
+
+            <label> Giây:</label>
+            <input type="text" id="second" placeholder="nhập số giây">
+        </div>
+        <br>
+        <div class="btn">
+            <button id="end">Stop</button>
+            <button id="continue">Continue</button>
+        </div>
+        <br>
+        <div class="countdownTime">
+            <span id="hour-countdown"></span>
+            <span id="minute-countdown"></span>
+            <span id="second-countdown"></span>
+        </div>
+    </div>
+</body>
+
+<script>
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    var second = document.getElementById("second");
+    var myInterval = "";
+    var hourCountdown = 0;
+    var minuteCountdown = 0;
+    var secondCountdown = 0;
+
+    //HÀM NÚT START ĐỂ BẮT ĐẦU ĐẾM NGƯỢC.
+    let start = document.getElementById("start");
+    start.addEventListener("click", function () {
+        hourCountdown = parseInt(hour.value);
+        minuteCountdown = parseInt(minute.value);
+        secondCountdown = parseInt(second.value);
+
+        //dùng phương thức setInterval để đếm ngược.
+        myInterval = setInterval(run, 1000);
+    })
+
+
+    //HÀM NÚT CONTINUE ĐỂ TIẾP TỤC ĐẾM NGƯỢC
+    let continueCountDown = document.getElementById("continue");
+    continueCountDown.addEventListener("click", function () {
+        hourCountdown = parseInt(document.getElementById("hour-countdown").innerHTML);
+        minuteCountdown = parseInt(document.getElementById("minute-countdown").innerHTML);
+        secondCountdown = parseInt(document.getElementById("second-countdown").innerHTML);
+
+        //dùng phương thức setInterval để đếm ngược.
+        myInterval = setInterval(run, 1000);
+    })
+
+
+    //HÀM CHẠY IN RA KẾT QUẢ ĐẾM NGƯỢC THEO GIÂY.
+    function run() {
+        secondCountdown--;
+        if (secondCountdown <= 0) {
+            console.log(secondCountdown);
+            minuteCountdown -= 1;
+            secondCountdown = 59;
+        }
+        if (minuteCountdown == -1) {
+            hourCountdown -= 1;
+            minuteCountdown = 59;
+        }
+        document.getElementById("hour-countdown").innerHTML = hourCountdown + ":";
+        document.getElementById("minute-countdown").innerHTML = minuteCountdown + ":";
+        document.getElementById("second-countdown").innerHTML = secondCountdown;
+    }
+
+
+    //HÀM DỪNG ĐẾM NGƯỢC.
+    let end = document.getElementById("end");
+    end.addEventListener("click", function () {
+        clearInterval(myInterval);
+    })
+
+</script>
+
+
+<!-- //HÀM NÚT START ĐỂ BẮT ĐẦU ĐẾM NGƯỢC
+let start = document.getElementById("start");
+start.addEventListener("click", function () {
+    hourCountdown = parseInt(hour.value);
+    minuteCountdown = parseInt(minute.value);
+    secondCountdown = parseInt(second.value);
+
+    //dùng phương thức setInterval để đếm ngược
+    //CÁCH-1:
+    myInterval = setInterval(run, 1000);
+
+    //CÁCH-2:
+    // myInterval = setInterval(function () {
+    //     secondCountdown--;
+    //     if (secondCountdown <= 0) {
+    //         console.log(secondCountdown);
+    //         minuteCountdown -= 1;
+    //         secondCountdown = 59;
+    //     }
+    //     if (minuteCountdown == -1) {
+    //         hourCountdown -= 1;
+    //         minuteCountdown = 59;
+    //     }
+
+    //     document.getElementById("hour-countdown").innerHTML = hourCountdown + ":";
+    //     document.getElementById("minute-countdown").innerHTML = minuteCountdown + ":";
+    //     document.getElementById("second-countdown").innerHTML = secondCountdown;
+    // }, 1000)
+}) -->
+
+</html>
