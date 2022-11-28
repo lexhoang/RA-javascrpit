@@ -7,8 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DongHoDemNguoc</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
-            width: 450px;
+            width: 600px;
             height: 200px;
             background-color: #f2f1ed;
             margin: 0 auto;
@@ -21,11 +27,16 @@
             font-weight: bold;
             justify-content: center;
             align-items: center;
+            margin: 0 auto;
+        }
+
+        .countdownTime div {
+            margin-top: 30px;
         }
 
         .countdownTime h3 {
             color: red;
-            font-size: 44px;
+            font-size: 38px;
             background-color: #fff;
             border: 1px solid #ccc;
             margin: 20px;
@@ -34,10 +45,16 @@
         }
 
         .bg-chicken {
-            width: 500px;
-            height: 500px;
+            width: 550px;
+            height: 450px;
             border: 1px solid #ccc;
             position: relative;
+            margin: 20px auto;
+        }
+
+        .chickenBtn:hover {
+            background-color: blue;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -61,7 +78,7 @@
                 <h3 id="second-countdown"> </h3>
             </div>
         </div>
-        <br>
+
         <div class="bg-chicken">
             <h3>Scores: <span id="score"></span></h3>
             <div id="textChicken"></div>
@@ -71,13 +88,8 @@
 </body>
 
 <script>
-    var hour = document.getElementById("hour");
-    var minute = document.getElementById("minute");
-    var second = document.getElementById("second");
     var score = 0;
-    // var hourCountdown = 0;
-    // var minuteCountdown = 0;
-    // var secondCountdown = 0;
+    var index = 10;
 
     //HÀM ĐỒNG HỒ ĐẾM NGƯỢC THEO GIÂY.
     function run() {
@@ -109,7 +121,6 @@
     }
     run();
 
-    let index = 10;
     function textChicken() {
         if (index > 0) {
             index--
@@ -117,8 +128,10 @@
         } else {
             index = 10;
         }
+        setTimeout(textChicken, 1000);
     }
-    setInterval(textChicken, 1000)
+    textChicken();
+
 
     let chicken = document.getElementById("chicken");
     let chickenImg = document.createElement("img");
@@ -126,33 +139,38 @@
 
     function addChicken() {
         chickenImg.src = "chicken.gif";
-        chickenImg.width = Math.floor(Math.random() * 500);
+        chickenImg.width = Math.floor((Math.random() * 300) - 50);
         chickenImg.style.position = "absolute";
-        chickenImg.style.top = Math.floor(Math.random() * 500) + "px";
-        chickenImg.style.left = Math.floor(Math.random() * 500) + "px";
-        chickenImg.classList.add("chickenBtn")
+        chickenImg.style.top = Math.floor(Math.random() * 300) + "px";
+        chickenImg.style.left = Math.floor(Math.random() * 400) + "px";
+        chickenImg.style.right = Math.floor(Math.random() * 400) + "px";
+        chickenImg.classList.add("chickenBtn");
+
         chickenImg.onclick = function () {
             chickenImg.src = "";
-            switch (chickenImg.width) {
-                case chickenImg.width < 100:
-                    score + 1
-                    break;
-                case chickenImg.width < 200:
-                    score + 2
-                    break;
-                case chickenImg.width < 500:
-                    score + 3
+            if (chickenImg.width <= 50) {
+                score += 5;
+            }
+            else if (chickenImg.width <= 150) {
+                score += 3;
+            }
+            else if (chickenImg.width <= 250) {
+                score++;
             }
             document.getElementById("score").innerHTML = score;
         }
         chicken.appendChild(chickenImg);
+
+        setTimeout(addChicken, 11000);
     }
-    chickenInterval = setInterval(addChicken, 7000);
+    addChicken();
+
 
     function hideChicken() {
         chickenImg.src = "";
+        setTimeout(hideChicken, 5000);
     }
-    setInterval(hideChicken, 3000);
+    hideChicken();
 </script>
 
 </html>
