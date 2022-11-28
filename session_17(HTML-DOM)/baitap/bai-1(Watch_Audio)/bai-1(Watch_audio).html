@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 200px auto;
+            text-align: center;
+        }
+    </style>
 </head>
 
-<body id="test">
-    <div id="current-time"></div>
-    <div id="music"> </div>
-    <div id="imgage"></div>
-
+<body>
+    <div class="container">
+        <h1 id="current-time" style="color:#fff"></h1>
+        <div id="music"> </div>
+    </div>
 </body>
 <script>
     function Clock() {
@@ -21,7 +28,7 @@
             today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
         let time = today.getHours() + ":" + today.getMinutes() + ":" +
             today.getSeconds();
-        let dateTime = date + ' ' + time;
+        let dateTime = date + ' <br>' + time;
         document.getElementById("current-time").innerHTML = dateTime;
     }
     Clock();
@@ -29,7 +36,7 @@
     function playMusic() {
         let aud = document.createElement("audio");
         console.log(aud);
-        aud.src = "/images/audio.mp3";
+        aud.src = "images/audio.mp3";
         console.log(typeof aud.controls);
         aud.autoplay = true;
         aud.preload = "auto";
@@ -37,10 +44,12 @@
         let div = document.getElementById("music");
         div.appendChild(aud);
     }
+    playMusic();
+
     var bg = [];
-    var bg1 = "/images/bg1.jpg";
-    var bg2 = "/images/bg2.jpg";
-    var bg3 = "/images/bg3.jpg";
+    var bg1 = "images/bg1.jpg";
+    var bg2 = "images/bg2.jpg";
+    var bg3 = "images/bg3.jpg";
     bg.push(bg1);
     bg.push(bg2);
     bg.push(bg3);
@@ -54,14 +63,12 @@
         body.background = bg[randomBg];
         body.style.backgroundSize = "100%";
 
-        // body.style.backgroundRepeat = "no-repeat"
-        // body.style.backgroundAttachment = "fixed"
+        body.style.backgroundRepeat = "no-repeat"
+        body.style.backgroundAttachment = "fixed"
     }
-
-    // playMusic();
+    setBackground();
+    setInterval(Clock, 1000);
     setInterval(playMusic, 30000);
-    // setTimeout(playMusic, 10);
-    // setBackground();
     setInterval(setBackground, 2000);
 
 </script>
