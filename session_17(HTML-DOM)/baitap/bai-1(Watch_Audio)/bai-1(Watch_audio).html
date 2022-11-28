@@ -8,30 +8,78 @@
     <title>Document</title>
     <style>
         .container {
-            width: 500px;
-            margin: 200px auto;
+            width: 400px;
+            margin: 0 auto;
             text-align: center;
+        }
+
+        .current-time {
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .current-time div {
+            color: #fff;
+            background-color: #127fd6;
+            border: 1px solid #ccc;
+            margin: 20px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .current-time h3 {
+            width: 40px;
+            font-size: 32px;
+            margin: 20px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+            padding: 24px;
+            background-color: #2196f3;
+        }
+
+        .current-time p {
+            opacity: 0.6
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1 id="current-time" style="color:#fff"></h1>
+        <h2 style="color:#fff">THỜI GIAN BÂY GIỜ LÀ:</h2>
+        <div class="current-time" style="color:#fff">
+            <div>
+                <h3 id="hour-curent"> </h3>
+                <p>GIỜ</p>
+            </div>
+
+            <div>
+                <h3 id="minute-curent"> </h3>
+                <p>PHÚT</p>
+            </div>
+
+            <div style="background-color: #ec0062">
+                <h3 id="second-curent" style="background-color: #ff006a"> </h3>
+                <p>GIÂY</p>
+            </div>
+        </div>
         <div id="music"> </div>
     </div>
 </body>
 <script>
     function Clock() {
-        let today = new Date();
-        let date =
-            today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-        let time = today.getHours() + ":" + today.getMinutes() + ":" +
-            today.getSeconds();
-        let dateTime = date + ' <br>' + time;
-        document.getElementById("current-time").innerHTML = dateTime;
+        let today = new Date
+        let hourCurent = today.getHours();
+        let minuteCurent = today.getMinutes();
+        let secondCurent = today.getSeconds();
+
+        document.getElementById("hour-curent").innerHTML = hourCurent;
+        document.getElementById("minute-curent").innerHTML = minuteCurent;
+        document.getElementById("second-curent").innerHTML = secondCurent;
     }
     Clock();
+    setInterval(Clock, 1000);
+
 
     function playMusic() {
         let aud = document.createElement("audio");
@@ -46,15 +94,9 @@
     }
     playMusic();
 
-    var bg = [];
-    var bg1 = "images/bg1.jpg";
-    var bg2 = "images/bg2.jpg";
-    var bg3 = "images/bg3.jpg";
-    bg.push(bg1);
-    bg.push(bg2);
-    bg.push(bg3);
-    console.log(bg);
 
+    var bg = ["images/bg1.jpg", "images/bg2.jpg", "images/bg3.jpg"];
+    console.log(bg);
     function setBackground() {
         let body = document.querySelector('body');
         const randomBg = Math.floor(Math.random() * bg.length);
@@ -62,13 +104,11 @@
 
         body.background = bg[randomBg];
         body.style.backgroundSize = "100%";
-
         body.style.backgroundRepeat = "no-repeat"
         body.style.backgroundAttachment = "fixed"
     }
     setBackground();
-    setInterval(Clock, 1000);
-    setInterval(playMusic, 30000);
+    // setInterval(playMusic, 30000);
     setInterval(setBackground, 2000);
 
 </script>
