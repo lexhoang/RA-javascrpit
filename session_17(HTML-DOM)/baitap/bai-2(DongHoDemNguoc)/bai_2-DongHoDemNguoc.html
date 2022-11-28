@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DongHoDemNguoc</title>
+    <style>
+        .container {
+            width: 450px;
+            height: 200px;
+            background-color: #f2f1ed;
+            margin: 0 auto;
+            text-align: center;
+            padding: 12px
+        }
+
+        .countdownTime {
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdownTime h3 {
+            color: red;
+            font-size: 44px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin: 20px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+            padding: 8px
+        }
+
+        .bg-chicken {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>DRAF <span style="color:red">COUNTDOWN</span></h3>
+        <div class="countdownTime">
+            <div>
+                <p>HOUR</p>
+                <h3 id="hour-countdown"> </h3>
+            </div>
+
+            <div>
+                <p>MINUTE</p>
+                <h3 id="minute-countdown"> </h3>
+            </div>
+
+            <div>
+                <p>SECOND </p>
+                <h3 id="second-countdown"> </h3>
+            </div>
+        </div>
+        <br>
+        <div class="bg-chicken">
+            <h3>Scores: <span id="score"></span></h3>
+            <div id="textChicken"></div>
+            <div id="chicken"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    var second = document.getElementById("second");
+    var score = 0;
+    // var hourCountdown = 0;
+    // var minuteCountdown = 0;
+    // var secondCountdown = 0;
+
+    //HÀM ĐỒNG HỒ ĐẾM NGƯỢC THEO GIÂY.
+    function run() {
+        let today = new Date
+        let hourCountdown = today.getHours();
+        let minuteCountdown = today.getMinutes();
+        let secondCountdown = today.getSeconds();
+
+        //dùng phương thức setInterval để đếm ngược
+        //CÁCH-1:
+        // myInterval = setInterval(run, 1000);
+
+        //CÁCH-2:
+        setInterval(function () {
+            secondCountdown--;
+            if (secondCountdown <= 0) {
+                console.log(secondCountdown);
+                minuteCountdown -= 1;
+                secondCountdown = 59;
+            }
+            if (minuteCountdown == -1) {
+                hourCountdown -= 1;
+                minuteCountdown = 59;
+            }
+            document.getElementById("hour-countdown").innerHTML = hourCountdown;
+            document.getElementById("minute-countdown").innerHTML = minuteCountdown;
+            document.getElementById("second-countdown").innerHTML = secondCountdown;
+        }, 1000)
+    }
+    run();
+
+    let index = 10;
+    function textChicken() {
+        if (index > 0) {
+            index--
+            document.getElementById("textChicken").innerHTML = "Gà con sẽ xuất hiện sau " + index + " giây";
+        } else {
+            index = 10;
+        }
+    }
+    setInterval(textChicken, 1000)
+
+    let chicken = document.getElementById("chicken");
+    let chickenImg = document.createElement("img");
+    var chickenInterval = "";
+
+    function addChicken() {
+        chickenImg.src = "chicken.gif";
+        chickenImg.width = Math.floor(Math.random() * 500);
+        chickenImg.style.position = "absolute";
+        chickenImg.style.top = Math.floor(Math.random() * 500) + "px";
+        chickenImg.style.left = Math.floor(Math.random() * 500) + "px";
+        chickenImg.classList.add("chickenBtn")
+        chickenImg.onclick = function () {
+            chickenImg.src = "";
+            switch (chickenImg.width) {
+                case chickenImg.width < 100:
+                    score + 1
+                    break;
+                case chickenImg.width < 200:
+                    score + 2
+                    break;
+                case chickenImg.width < 500:
+                    score + 3
+            }
+            document.getElementById("score").innerHTML = score;
+        }
+        chicken.appendChild(chickenImg);
+    }
+    chickenInterval = setInterval(addChicken, 7000);
+
+    function hideChicken() {
+        chickenImg.src = "";
+    }
+    setInterval(hideChicken, 3000);
+</script>
+
+</html>
