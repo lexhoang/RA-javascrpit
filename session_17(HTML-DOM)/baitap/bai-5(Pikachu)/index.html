@@ -7,20 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pikachu</title>
     <style>
+        .container {
+            background: linear-gradient(180deg, #471953, #2e1042, #250e3d);
+            width: 425px;
+            border-radius: 40px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
         .rowColor {
             height: 20px;
             background: linear-gradient(145deg, #e94041, #c059fe, #f8c340, #84f200);
             margin-bottom: 40px;
             border: 2px solid #fff;
-        }
-
-        .container {
-            background-color: #000;
-            width: 425px;
-            border-radius: 32px;
-            margin: 0 auto;
-            padding: 24px;
-
         }
 
         #box {
@@ -32,7 +31,7 @@
             background-color: #faddc0;
             padding: 8px;
             margin: 0 2px;
-            box-shadow: 4px 4px 2px rgba(217, 201, 188, 0.601);
+            box-shadow: 4px 4px 2px #92755b;
             border-radius: 6px;
         }
 
@@ -68,33 +67,35 @@
             img.width = 50;
             img.height = 50;
             img.className = "box-img";
+            boxItem.appendChild(img);
+            console.log(img);
+        }
+    }
+    console.log(boxItem);
 
-            let boxImg = document.getElementsByClassName("box-img");
-            img.onclick = function () {
-                img.style.background = "red";
-                result.push(img.src);
+    function addEventListenerButton() {
+        let boxImg = document.getElementsByClassName("box-img");
+        for (let i = 0; i < boxImg.length; i++) {
+            boxImg[i].addEventListener("click", function () {
+                console.log("ad");
+                console.log(boxImg[i].src);
+                boxImg[i].style.background = "red";
+                result.push(boxImg[i].src);
                 console.log(result);
 
-                if (result[0] === result[1]) {
-                    boxImg.innerHTML = "";
+                if (result[0] == result[1]) {
+                    boxImg[i].style.visibility = "hidden";
                     console.log("d");
                 } else {
                     console.log("da");
                 }
-            }
-            boxItem.appendChild(img);
+            })
         }
     }
+    addEventListenerButton();
 
-// let arrayPikachu = [
-//         ["images/ahri.jpg", "images/ashe.jpg", "images/eko.jpg", "images/jana.jpg", "images/jinx.jpg"],
-//         ["images/kene.jpg", "images/LB.jpg", "images/LS.jpg", "images/lulu.jpg", "images/lux.jpg"],
-//         ["images/masterYi.jpg", "images/Sena.jpg", "images/Shen.jpg", "images/Sion.jpg", "images/teemo.jpg"], ["images/thuythan.jpg", "images/veigar.jpg", "images/yasuo.jpg", "images/Vi.jpg", "images/vayne.jpg"],
-//         ["images/ahri.jpg", "images/ashe.jpg", "images/eko.jpg", "images/jana.jpg", "images/jinx.jpg"],
-//         ["images/kene.jpg", "images/LB.jpg", "images/LS.jpg", "images/lulu.jpg", "images/lux.jpg"],
-//         ["images/masterYi.jpg", "images/Sena.jpg", "images/Shen.jpg", "images/Sion.jpg", "images/teemo.jpg"],
-//         ["images/thuythan.jpg", "images/veigar.jpg", "images/yasuo.jpg", "images/Vi.jpg", "images/vayne.jpg"]
-//     ];
+
+
 </script>
 
 </html>
