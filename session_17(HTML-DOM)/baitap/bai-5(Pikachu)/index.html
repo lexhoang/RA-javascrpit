@@ -44,11 +44,12 @@
 <body>
     <div class="container">
         <div class="rowColor"></div>
+        <div style="color:#fff">
+            <h3>Scores: <span id="scores"></span></h3>
+        </div>
         <div id="box">
             <div id="box-item"></div>
-            <div id="box-item2"></div>
         </div>
-        <div id="result"></div>
     </div>
 </body>
 <script>
@@ -58,43 +59,52 @@
         ["images/ahri.jpg", "images/ashe.jpg", "images/eko.jpg", "images/jana.jpg", "images/jinx.jpg", "images/kene.jpg", "images/LB.jpg", "images/LS.jpg", "images/lulu.jpg", "images/lux.jpg", "images/masterYi.jpg", "images/Sena.jpg", "images/Shen.jpg", "images/Sion.jpg", "images/teemo.jpg", "images/thuythan.jpg", "images/veigar.jpg", "images/yasuo.jpg"]
     ];
 
-    let result = [];
     let boxItem = document.getElementById("box-item");
     for (let i = 0; i < arrayPikachu.length; i++) {
         for (let j = 0; j < arrayPikachu[i].length; j++) {
-            let img = document.createElement("img");
-            img.src = arrayPikachu[i][j];
-            img.width = 50;
-            img.height = 50;
-            img.className = "box-img";
-            boxItem.appendChild(img);
-            console.log(img);
-
+            let pikachuImg = document.createElement("img");
+            pikachuImg.src = arrayPikachu[i][j];
+            pikachuImg.width = 50;
+            pikachuImg.height = 50;
+            pikachuImg.className = "box-img";
+            pikachuImg.addEventListener("click", addEventListenerButton)
+            boxItem.appendChild(pikachuImg);
+            // console.log(pikachuImg);
         }
     }
-    console.log(boxItem);
 
-    // let result = "";
+    var result = "";
+    var score = 0;
     function addEventListenerButton() {
-        let boxImg = document.getElementsByClassName("box-img");
-        for (let i = 0; i < boxImg.length; i++) {
-            boxImg[i].addEventListener("click", function () {
-                console.log("ad");
-                console.log(boxImg[i].src);
-                boxImg[i].style.background = "red";
-                result.push(boxImg[i].src);
+        console.log("click")
+        if (result == "") {
+            result = this;
+            this.style.backgroundColor = "red"
+            console.log(result);
+        } else {
+            if (this.src == result.src) {
                 console.log(result);
-
-                if (result[0] == result[1]) {
-                    boxImg[i].style.visibility = "hidden";
-                    console.log("d");
-                } else {
-                    console.log("da");
+                this.style.visibility = "hidden";
+                result.style.visibility = "hidden";
+                score++;
+                result = "";
+            }
+            else {
+                console.log(result);
+                // xóa bỏ background khi 2 hình khác nhau
+                let allClassPikachu = document.querySelectorAll(".box-img");
+                for (let index = 0; index < allClassPikachu.length; index++) {
+                    allClassPikachu[index].style.backgroundColor = "#faddc0";
+                    result.style.backgroundColor = "red";
                 }
-            })
+            }
+        }
+
+        document.getElementById("scores").innerHTML = score;
+        if (score == 18) {
+            alert("Win");
         }
     }
-    addEventListenerButton();
 
 
 
