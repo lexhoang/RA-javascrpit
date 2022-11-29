@@ -88,15 +88,15 @@
                 score++;
                 result = "";
             }
-            else {
-                console.log(result);
-                // xóa bỏ background khi 2 hình khác nhau
-                let allClassPikachu = document.querySelectorAll(".box-img");
-                for (let index = 0; index < allClassPikachu.length; index++) {
-                    allClassPikachu[index].style.backgroundColor = "#faddc0";
-                    result.style.backgroundColor = "red";
-                }
-            }
+            // else {
+            //     console.log(result);
+            //     // xóa bỏ background khi 2 hình khác nhau
+            //     let allClassPikachu = document.querySelectorAll(".box-img");
+            //     for (let index = 0; index < allClassPikachu.length; index++) {
+            //         allClassPikachu[index].style.backgroundColor = "#faddc0";
+            //         result.style.backgroundColor = "red";
+            //     }
+            // }
         }
 
         document.getElementById("scores").innerHTML = score;
