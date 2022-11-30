@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Form</title>
+    <script src="https://kit.fontawesome.com/68734f4fab.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: url("https://static.vecteezy.com/system/resources/previews/003/549/556/original/space-galaxy-background-free-vector.jpg");
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            width: 550px;
+            margin: 50px auto;
+            background: url("https://iphoneswallpapers.com/wp-content/uploads/2022/09/Earth-Rising-iPhone-Wallpaper-HD.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        form {
+            padding: 40px 80px
+        }
+
+        .form-control {
+            position: relative;
+            margin: 40px 0;
+        }
+
+
+        label {
+            color: #fff;
+        }
+
+        .form-control input {
+            width: 100%;
+            height: 44px;
+            display: inline-block;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.553);
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px
+        }
+
+        #btn-submit {
+            width: 100%;
+            height: 45px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            transition: calc(0.5s);
+            border-radius: 20px;
+        }
+
+        #btn-submit:hover {
+            cursor: pointer;
+            height: 55px;
+            border-radius: 30px;
+            background-color: red;
+        }
+
+        .fa-eye-slash {
+            position: relative;
+            top: -30px;
+            left: 360px;
+        }
+
+        .fa-eye-slash:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="loginForm.html" onsubmit="return checkForm()">
+            <h1>FORM LOGIN</h1>
+            <hr>
+            <div class="form-control">
+                <label for="email"><b>Email</b></label>
+                <input type="text" id="inp-email" placeholder="Enter Email" name="email" onchange="checkEmail()"
+                    required>
+            </div>
+
+            <div class="form-control">
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="inp-password" placeholder="Enter Password" name="password" required
+                    onchange="checkPassword()">
+                <i class="fa-solid fa-eye-slash" id="btn-password"></i>
+            </div>
+            <p id="checkText"></p>
+            <input type="submit" id="btn-submit" value="Register" />
+        </form>
+    </div>
+</body>
+
+<script>
+    const inpEmail = document.getElementById("inp-email");
+    const inpPassword = document.getElementById("inp-password");
+    const btnPassword = document.getElementById("btn-password");
+    const btnSubmit = document.getElementById("btn-submit");
+    const checkText = document.getElementById("checkText");
+    function checkForm() {
+        if (checkEmail() == true && checkPassword() == true && checkConfirmPassword() == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkEmail() {
+        const FormatEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (!(FormatEmail.test(String(inpEmail.value).toLowerCase()))) {
+            checkText.innerHTML = "Email không định dạng";
+            checkText.style.color = "red";
+            console.log("Email không định dạng");
+            return false;
+        } else {
+            checkText.innerHTML = "Thông tin hợp lệ";
+            checkText.style.color = "rgb(0, 255, 0)";
+        }
+        return true
+    }
+
+    function checkPassword() {
+        let decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+        if (!(inpPassword.value.match(decimal))) {
+            console.log("Email không định dạng");
+            checkText.innerHTML = "Password không định dạng";
+            checkText.style.color = "red"
+            return false;
+        } else {
+            checkText.innerHTML = "Thông tin hợp lệ";
+            checkText.style.color = "rgb(0, 255, 0)"
+        }
+        return true
+    }
+
+
+    //       KIỂM TRA PASSWORD
+    function valiDatePassWord(paramPassWord) {
+        "use strict";
+        return checkPassword;
+    }
+
+
+    //Hàm Nút Để Nhìn Mật Khẩu
+    btnPassword.addEventListener('click', function () {
+        this.classList.toggle('fa-eye');
+        inpPassword.setAttribute('type',
+            inpPassword.getAttribute('type') === 'password' ? 'text' : 'password'
+        )
+    })
+</script>
+
+</html>
