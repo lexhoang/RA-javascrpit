@@ -11,7 +11,41 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: url("https://static.vecteezy.com/system/resources/previews/003/549/556/original/space-galaxy-background-free-vector.jpg");
+            background: url("https://i.pinimg.com/736x/73/55/a0/7355a06b3c04bb8c006a0746d0ee74bd.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 550px;
+            margin: 50px auto;
+            background-color: rgba(74, 72, 72, 0.595);
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 60px
+        }
+
+        .container .option-form {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container .option-form a {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.558);
+            width: 100%;
+            padding: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #fff;
+            text-decoration: none;
+        }
+
+        .container .option-form a:hover {
+            background-color: #1cca8a
         }
 
         h1 {
@@ -19,17 +53,11 @@
             color: #fff;
         }
 
-        .container {
-            width: 550px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.17);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
 
-        form {
+
+        /* form {
             padding: 40px 80px
-        }
+        } */
 
         .form-control {
             position: relative;
@@ -53,27 +81,25 @@
 
         #btn-submit {
             width: 100%;
-            height: 45px;
+            height: 50px;
             font-size: 20px;
             font-weight: bold;
-            background-color: #04AA6D;
+            background-color: #1cca8a;
             color: white;
             border: none;
             transition: calc(0.5s);
-            border-radius: 20px;
         }
 
         #btn-submit:hover {
             cursor: pointer;
-            height: 55px;
-            border-radius: 30px;
+            height: 65px;
             background-color: red;
         }
 
         .fa-eye-slash {
             position: relative;
-            top: -30px;
-            left: 360px;
+            top: -32px;
+            left: 500px;
         }
 
         .fa-eye-slash:hover {
@@ -84,33 +110,37 @@
 
 <body>
     <div class="container">
-        <form action="loginForm.html" onsubmit="return checkForm()">
-            <h1>FORM REGISTER</h1>
-            <hr>
-            <div class="form-control">
-                <label for="email"><b>Email</b></label>
-                <input type="text" id="inp-email" placeholder="Enter Email" name="email" onchange="checkEmail()"
-                    required>
-                <p id="noteEmail"></p>
-            </div>
+        <!-- <form action="loginForm.html" onsubmit="return checkForm()"> -->
+        <div class="option-form">
+            <a href="registerForm.html" style="background-color:#1cca8a">SIGN UP</a>
+            <a href="loginForm.html">LOGIN</a>
+        </div>
+        <br>
+        <h1>FORM REGISTER</h1>
+        <hr>
+        <div class="form-control">
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="inp-email" placeholder="Enter Email" name="email" onchange="checkEmail()" required>
+            <h3 id="noteEmail"></h3>
+        </div>
 
-            <div class="form-control">
-                <label for="password"><b>Password</b></label>
-                <input type="password" id="inp-password" placeholder="Enter Password" name="password" required
-                    onchange="checkPassword()">
-                <i class="fa-solid fa-eye-slash" id="btn-password"></i>
-                <p id="notePassword"></p>
-            </div>
+        <div class="form-control">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="inp-password" placeholder="Enter Password" name="password" required
+                onchange="checkPassword()">
+            <i class="fa-solid fa-eye-slash" id="btn-password"></i>
+            <h3 id="notePassword"></h3>
+        </div>
 
-            <div class="form-control">
-                <label for="confirmPassword"><b>Repeat Password</b></label>
-                <input type="password" id="inp-confirmPassword" placeholder="Confirm Password" name="confirmPassword"
-                    onchange="checkConfirmPassword()" required>
-                <i class="fa-solid fa-eye-slash" id="btn-confirmPassword"></i>
-                <p id="noteConfirmPassword"></p>
-            </div>
-            <input type="submit" id="btn-submit" value="Register" />
-        </form>
+        <div class="form-control">
+            <label for="confirmPassword"><b>Repeat Password</b></label>
+            <input type="password" id="inp-confirmPassword" placeholder="Confirm Password" name="confirmPassword"
+                onchange="checkConfirmPassword()" required>
+            <i class="fa-solid fa-eye-slash" id="btn-confirmPassword"></i>
+            <h3 id="noteConfirmPassword"></h3>
+        </div>
+        <button id="btn-submit">Register</button>
+        <!-- </form> -->
     </div>
 </body>
 
@@ -125,7 +155,28 @@
     const notePassword = document.getElementById("notePassword");
     const noteConfirmPassword = document.getElementById("noteConfirmPassword");
 
+    var usersRegister = [];
+    let data = "user";
 
+    //NÚT SUBMIT
+    let signUp = document.getElementById("btn-submit");
+    signUp.addEventListener("click", function () {
+        if (checkForm()) {
+            console.log(usersRegister);
+            usersRegister.push({
+                email: inpEmail.value,
+                password: inpPassword.value,
+            })
+            console.log(usersRegister);
+            console.log(JSON.stringify(usersRegister));
+            localStorage.setItem("user", JSON.stringify(usersRegister))
+            window.location.href = "loginForm.html"
+        }
+    })
+    console.log(usersRegister)
+
+
+    ////////////        CHECK FORM        //////////////
     function checkForm() {
         if (checkEmail() == true && checkPassword() == true && checkConfirmPassword() == true) {
             return true;
@@ -133,7 +184,6 @@
             return false;
         }
     }
-
     //       KIỂM TRA EMAIL
     function checkEmail() {
         const FormatEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -149,8 +199,6 @@
         }
         return true
     }
-
-
     //       KIỂM TRA PASSWORD
     function checkPassword() {
         let decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
@@ -165,28 +213,20 @@
         }
         return true
     }
-
-
     //       KIỂM TRA CONFIRM PASSWORD
     function checkConfirmPassword() {
         if (inpConfirmPassword.value !== inpPassword.value) {
-            console.log("ConfirmPassword không hợp lê");
-            noteConfirmPassword.innerHTML = "ConfirmPassword không hợp lê";
+            console.log("Confirm Password không hợp lê");
+            noteConfirmPassword.innerHTML = "Confirm Password không hợp lê";
             noteConfirmPassword.style.color = "red"
             return false;
         } else {
-            noteConfirmPassword.innerHTML = "ConfirmPassword hợp lệ";
+            noteConfirmPassword.innerHTML = "Confirm Password hợp lệ";
             noteConfirmPassword.style.color = "rgb(0, 255, 0)"
         }
         return true
     }
 
-
-    //       KIỂM TRA PASSWORD
-    function valiDatePassWord(paramPassWord) {
-        "use strict";
-        return checkPassword;
-    }
 
 
     //Hàm Nút Để Nhìn Mật Khẩu

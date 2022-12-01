@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CauThuYeuThich</title>
+</head>
+
+<body>
+    <input id="inpPlayer" type="text" placeholder="Nhập tên cầu thủ" />
+    <input id="addPlayer" type="button" value="Thêm cầu thủ">
+    <ul id="listPlayer">
+        <li>CR7</li>
+    </ul>
+</body>
+<script>
+    let player = document.getElementById("inpPlayer");
+    let listPlayer = document.getElementById("listPlayer");
+
+    let control = document.getElementById("addPlayer");
+    control.addEventListener('click', function () {
+        console.log('Click');
+        let li_player = document.createElement("li");
+        li_player.innerHTML = player.value;
+        listPlayer.appendChild(li_player);
+    });
+
+
+
+</script>
+
+</html>
