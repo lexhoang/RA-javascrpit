@@ -85,15 +85,16 @@
         }
     }
 
-    let mouse = new Rat("Rat1", 1, 10, false);
+    // let mouse = new Rat("Rat1", 1, 10, false);
+    let mouse1 = new Rat("Rat2", 1, 10, false);
     let cat = new Cat("Cat", 5, 30);
 
     console.log("%c Bắt chuột: ", "font-style:italic; color:blue; font-size:24px");
-    console.log(cat.catchMouse(mouse));
+    console.log(cat.catchMouse(mouse1));
     console.log("");
 
     console.log("%c Ăn chuột: ", "font-style:italic;font-size:24px; color:red");
-    console.log(cat.eatMouse(mouse));
+    console.log(cat.eatMouse(mouse1));
 
 </script>
 

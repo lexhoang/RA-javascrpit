@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyen_Tap--Dieu_Kien</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .container>div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+
+        .calculation input {
+            width: 50px;
+            text-align: center;
+        }
+
+        .form-inp input {
+            margin: 4px;
+            width: 150px;
+            height: 24px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Bài 1 -->
+        <div>
+            <h2>
+                Bài 1: Nhập vào hình vuông có cạnh là a. Tính diện tích và chu vi của hình vuông.
+            </h2>
+            <p id="perimeterSquare"></p>
+            <p id="areaSquare"></p>
+            <button onclick="calculationSquare()">Click bài 1</button>
+        </div>
+
+        <!-- Bài 2-->
+        <div>
+            <h2>
+                Bài 2: Nhập vào hình chữ nhật có chiều dài a và chiều rộng b. Tính và in ra diện tích và
+                chu vi hình chữ nhật.
+            </h2>
+            <p id="perimeterRectangle"></p>
+            <p id="areaRectangle"></p>
+            <button onclick="calculationRectangle()">Click bài 2</button>
+        </div>
+
+        <!-- Bài 3 -->
+        <div class="calculation">
+            <h2>
+                Bài 3: Nhập vào 2 số nguyên a,b và các phép toán +,-,*,/. Thực hiện tính toán theo phép
+                toán nhập vào với hai số a,b.
+            </h2>
+            <input type="number" id="number_1" placeholder="num" />
+            <select id="calculation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" id="number_2" placeholder="nume" />
+            <p id="resultCalculate"></p>
+            <button onclick="calculator()">Click bài 3</button>
+        </div>
+
+        <!-- Bài 4 -->
+        <div class="form">
+            <h2>
+                Bài 4: Nhập vào thông tin sinh viên bao gồm các thông tin: Mã sinh viên, tên sinh viên,
+                tuổi, giới tính, Email, số điện thoại, địa chỉ. In ra thông tin theo định dạng.
+            </h2>
+            <div class="form-inp">
+                <div>
+                    <input type="text" id="inp-id" placeholder="Mã sinh viên" />
+                    <input type="text" id="inp-name" placeholder="Tên sinh viên" />
+                </div>
+
+                <div>
+                    <input type="text" id="inp-age" placeholder="Tuổi sinh viên" />
+                    <select id="inp-gender" style="width:160px; height:30px">
+                        <option value="none">Giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="text" id="inp-email" placeholder="Email" />
+                    <input type="text" id="inp-phone" placeholder="Số điện thoại" />
+                </div>
+
+                <input type="text" id="inp-address" placeholder="Địa chỉ" style="width:90%;" />
+            </div>
+            <div class="form-info">
+                <p id="info-result"></p>
+            </div>
+            <button onclick="infoStudent()">Click bài 4</button>
+        </div>
+
+        <!-- Bài 5 -->
+        <div>
+            <h2>
+                Bài 5: Nhập vào 3 cạnh của tam giác a,b,c. In ra kết quả là tam giác thường, cân, vuông,
+                vuông cân, đều.
+            </h2>
+            <button onclick="formatTriangle()">Click bài 5</button>
+        </div>
+
+        <!-- Bài 6 -->
+        <div>
+            <h2>
+                Bài 6: Nhập vào một tháng m, năm y và cho biết tháng đó có bao nhiêu ngày.
+            </h2>
+            <button onclick="printDay()">Click bài 6</button>
+        </div>
+
+        <!-- Bài 7 -->
+        <div>
+            <h2>
+                Bài 7: Nhập vào một số 0-9, phiên âm số vừa nhập.
+            </h2>
+            <button onclick="spellingNumber()">Click bài 7</button>
+        </div>
+
+        <!-- Bài 8 -->
+        <div>
+            <h2>
+                Bài 8: Nhập vào một số gồm 3 chữ số. In ra phiêm âmsố đảo ngược.
+            </h2>
+            <button onclick="reverseNumber()">Click bài 8</button>
+        </div>
+
+        <!-- Bài 9 -->
+        <div>
+            <h2>
+                Bài 9: Nhập vào một số giây (Seconds). Chuyển đổi số giây thành giờ phút giây (a hours
+                : b minutes : c seconds).
+            </h2>
+            <button onclick="printTime()">Click bài 9</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    //Bài 1
+    function calculationSquare() {
+        let a = parseInt(prompt("Nhập cạnh a của hình vuông"));
+        document.getElementById("perimeterSquare").innerHTML = "Chu vi : " + a * 4;
+        document.getElementById("areaSquare").innerHTML = "Diện tích : " + a * a;
+    }
+
+    //Bài 2
+    function calculationRectangle() {
+        let a = parseInt(prompt("Nhập cạnh chiều dài của hình chữ nhật"));
+        let b = parseInt(prompt("Nhập cạnh chiều rộng của hình chữ nhật"));
+        document.getElementById("perimeterRectangle").innerHTML = "Chu vi : " + ((a + b) * 2);
+        document.getElementById("areaRectangle").innerHTML = "Diện tích : " + a * b;
+    }
+
+    //Bài 3
+    function calculator() {
+        let num_1 = parseInt(document.getElementById("number_1").value);
+        let num_2 = parseInt(document.getElementById("number_2").value);
+        let calculation = document.getElementById("calculation");
+        let result = document.getElementById("resultCalculate");
+        switch (calculation.value) {
+            case "+":
+                result.innerHTML = num_1 + num_2;
+                break;
+            case "-":
+                result.innerHTML = num_1 - num_2;
+                break;
+            case "*":
+                result.innerHTML = num_1 * num_2;
+                break;
+            case "/":
+                result.innerHTML = num_1 / num_2;
+        }
+    }
+
+    //Bài 4
+    function infoStudent() {
+        let id = document.getElementById("inp-id").value;
+        let name = document.getElementById("inp-name").value;
+        let age = document.getElementById("inp-age").value;
+        let gender = document.getElementById("inp-gender").value;
+        let email = document.getElementById("inp-email").value;
+        let phone = document.getElementById("inp-phone").value;
+        let address = document.getElementById("inp-address").value;
+
+        let result = "";
+        result += `
+            <table width="100%" cellpadding="16" style="text-align:left">
+                <tr>
+                    <td>Student ID: ${id}
+                    <td>Student Name: ${name}
+                    <td>Student Age: ${age}
+                </tr>
+                <tr>
+                    <td>Gender: ${gender}
+                    <td>Email: ${email}
+                    <td>Phone: ${phone}
+                </tr>
+                <tr>
+                    <td>Address: ${address}
+                </tr>
+            </table>
+        `
+        document.getElementById("info-result").innerHTML = result
+    }
+
+    //Bài 5
+    function formatTriangle() {
+        let a = parseInt(prompt("Nhập cạnh a"));
+        let b = parseInt(prompt("Nhập cạnh b"));
+        let c = parseInt(prompt("Nhập cạnh c"));
+        if (a + b > c && a + c > b && b + c > a) {
+            console.log("Đây là tam giác");
+            if (a == b && b == c && a == c) {
+                alert("Tam giác đều");
+            }
+            else if ((a * a + b * b) == (c * c) || (a * a + c * c) == (b * b) || (b * b + c * c) == (a * a)) {
+                alert("Tam giác vuông");
+            }
+            else if ((a == b || b == c || a == c) &&
+                ((a * a + b * b) == (c * c) || (a * a + c * c) == (b * b) || (b * b + c * c) == (a * a))
+            ) {
+                alert("Tam giác vuông - cân");
+            }
+            else if (a == b || b == c || a == c) {
+                alert("Tam giác cân");
+            }
+            else {
+                alert("Tam giác thường")
+            }
+
+        } else {
+            alert("Không phải là tam giác");
+            console.log("Không phải là tam giác");
+        }
+    }
+
+    //Bài 6
+    function printDay() {
+        let year = parseInt(prompt("Enter a year"));
+        let isLeapYear = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    isLeapYear = true;
+                }
+            } else {
+                isLeapYear = true;
+            }
+        }
+
+        let month = parseInt(prompt("Nhập tháng"));
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert("31 ngày");
+                break;
+            case 2:
+                if (isLeapYear == true) {
+                    alert("29 ngày");
+                } else {
+                    alert("28 ngày");
+                }
+                break;
+
+            default:
+                alert("30 ngày");
+        }
+    }
+
+
+    //Bài 7
+    function spellingNumber() {
+        let number = parseInt(prompt("Nhập số"));
+        switch (number) {
+            case 0:
+                alert("Số Không");
+                break;
+            case 1:
+                alert("Số Một");
+                break;
+            case 2:
+                alert("Số Hai");
+                break;
+            case 3:
+                alert("Số Ba");
+                break;
+            case 4:
+                alert("Số Bốn");
+                break;
+            case 5:
+                alert("Số Năm");
+                break;
+            case 6:
+                alert("Số Sáu");
+                break;
+            case 7:
+                alert("Số Bảy");
+                break;
+            case 8:
+                alert("Số Tám");
+                break;
+            case 9:
+                alert("Số Chín");
+        }
+    }
+
+    //Bài 8
+    function reverseNumber() {
+        let number = parseInt(prompt("Nhập số"));
+        let a = parseInt(number / 100);
+        let b = parseInt((number % 100) / 10);
+        let c = parseInt((number % 100) % 10);
+        let result = c + "" + b + "" + a;
+        alert(result);
+    }
+
+    //Bài 9
+    function printTime() {
+        let seconds = parseInt(prompt("Nhập số giây"));
+        let hours = parseInt((seconds / 3600));
+        let minutes = parseInt((seconds % 3600) / 60);
+        seconds = parseInt((seconds % 3600) % 60);
+        let result = hours + " giờ  " + minutes + " phút  " + seconds + " giây";
+        alert(result);
+    }
+
+</script>
+
+</html>
