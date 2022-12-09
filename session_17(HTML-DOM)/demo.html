@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <h2>Do You Love Me! </h2>
+    <button id="btn-yes">Yes</button>
+    <button id="btn-no">No</button>
+    <p id="result"></p>
+    <!-- <p onclick="handleClick()">I love you too!</p>
+    <p onclick="handleClick()">I love you too!</p>
+    <p onclick="handleClick()">I love you too!</p> -->
+
+    <script>
+        let text = document.getElementById("result");
+        let btnYes = document.getElementById("btn-yes");
+        let btnNo = document.getElementById("btn-no");
+
+        btnYes.addEventListener("click", () => {
+            let test = document.createElement("div");
+            const span = document.createElement("span");
+            span.innerHTML = '1';
+            test.appendChild(span);
+            test.innerHTML = "I love you too!"
+            // test.setAttribute("onclick", "start(this)")
+            text.appendChild(test);
+        });
+
+        // let quantity = 0;
+        // function handleClick() {
+        //     console.log("clicked");
+        //     quantity++
+
+        //     let count = document.querySelectorAll(".count");
+        //     for (let i in count) {
+        //         count[i].innerHTML =
+        //             count.innerHTML = quantity;
+        //     }
+        // }
+
+        // function start(element) {
+        //     setInterval(handleClick, 1000)
+        // }
+
+        // function btnStop() {
+        //     clearInterval(start);
+        // }
+
+        btnNo.addEventListener("mouseover", () => {
+            let x = Math.floor(Math.random() * window.innerWidth);
+            let y = Math.floor(Math.random() * window.innerHeight);
+            btnNo.style.position = "relative";
+            btnNo.style.top = y + "px";
+            btnNo.style.left = x + "px";
+        });
+    </script>
+</body>
+
+</html>

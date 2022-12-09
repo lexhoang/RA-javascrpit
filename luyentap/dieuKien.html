@@ -170,6 +170,14 @@
             </h2>
             <button onclick="printTime()">Click bài 9</button>
         </div>
+
+        <!-- Bài 10 -->
+        <div>
+            <h2>
+                Bài 10: Nhập vào một số nguyên, kiểm tra số đó có phải là số nguyên tố - số hoàn hảo.
+            </h2>
+            <button onclick="checkPrime()">Click bài 10</button>
+        </div>
     </div>
 </body>
 
@@ -367,6 +375,27 @@
         alert(result);
     }
 
+    //Bài 10
+    function checkPrime() {
+        let number = parseInt(prompt("Nhập số để kiểm tra"));
+        if (number == 2) {
+            alert(number + " là số nguyên tố");
+        }
+        else if (number > 2) {
+            for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    alert(number + " không phải là số nguyên tố");
+                    break;
+                } else {
+                    alert(number + " là số nguyên tố");
+                    break;
+                }
+            }
+        }
+        else {
+            alert(number + " không phải là số nguyên tố");
+        }
+    }
 </script>
 
 </html>

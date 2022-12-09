@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://mocah.org/uploads/posts/128246-stars-planets-galaxy-4k.jpg");
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .container>div {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 3px solid #fff;
+            padding: 12px;
+        }
+
+        button {
+            width: 200px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.281);
+            font-weight: bold;
+            transition: calc(0.6s);
+            color: #fff;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: orangered;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Bài 1 -->
+        <div>
+            <h2>
+                Bài 1: Nhập vào một số n, in ra các số chẵn và tính tổng trong khoảng 0...n.
+            </h2>
+            <button onclick="sumEven()">Click bài 1</button>
+        </div>
+
+        <!-- Bài 2 -->
+        <div>
+            <h2>
+                Bài 2: Nhập vào một số n, in ra các số lẻ và tính tổng trong khoảng 0...n.
+            </h2>
+            <button onclick="sumOdd()">Click bài 2</button>
+        </div>
+
+        <!-- Bài 3 -->
+        <div>
+            <h2>
+                Bài 3: Nhập vào một số n, kiểm tra n có phải số nguyên tố không.
+            </h2>
+            <button onclick="printCheckPrime()">Click bài 3</button>
+        </div>
+
+        <!-- Bài 4 -->
+        <div>
+            <h2>
+                Bài 4: Nhập vào một số n, kiểm tra n có phải số hoàn hảo không.
+            </h2>
+            <button onclick="checkPerfectNumber()">Click bài 4</button>
+        </div>
+
+        <!-- Bài 5 -->
+        <div>
+            <h2>
+                Bài 5: Nhập vào một số n, in ra các số nguyên tố trong khoảng 0...n.
+            </h2>
+            <button onclick="printPrimeInRange()">Click bài 5</button>
+        </div>
+
+        <!-- Bài 6 -->
+        <div>
+            <h2>
+                Bài 6: Nhập vào một số n, in ra các ước số của n và tính tổng.
+            </h2>
+            <button onclick="calSumOfDivisor()">Click bài 6</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    //Bài 1
+    function sumEven() {
+        let number = parseInt(prompt("Nhập số n"));
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+            if (i % 2 == 0) {
+                sum += i
+            }
+        }
+        alert(sum)
+    }
+
+    //Bài 2
+    function sumOdd() {
+        let number = parseInt(prompt("Nhập số n"));
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+            if (i % 2 != 0) {
+                sum += i
+            }
+        }
+        alert(sum)
+    }
+
+    //Bài 3
+    function checkPrime(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            for (let i = 2; i < number - 1; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    function printCheckPrime() {
+        let number = parseInt(prompt("Nhập số để kiểm tra"));
+        if (checkPrime(number) == true) {
+            alert("Đây là số nguyên tố");
+        } else {
+            alert("Đây không phải là số nguyên tố");
+        }
+    }
+
+    //Bài 4
+    function checkPerfectNumber() {
+        let num = parseInt(prompt("Nhập số cần kiểm tra"));
+        let total = 0;
+        for (let i = 0; i < num; i++) {
+            if (num % i == 0) {
+                total += i;
+            }
+        }
+        if (total == num && num != 0) {
+            alert("Đây là số hoàn hảo");
+            return true;
+        } else {
+            alert("Đây không phải là số hoàn hảo");
+            return false;
+        }
+    }
+
+    //Bài 5
+    // function printQuantityPrime() {    //In ra Số lượng số nguyên tố cần
+    //     let n = parseInt(prompt("Nhập số lượng snt cần in ra"));
+    //     let number = 2;
+    //     let count = 0;
+    //     while (count < n) {
+    //         if (checkPrime(number)) {
+    //             document.write(number + ", ")
+    //             count++
+    //         }
+    //         number++
+    //     }
+    // }
+    function printPrimeInRange() {      //In ra các số nguyên tố từ 0 -...n
+        let number = parseInt(prompt("Nhập số để kiểm tra"));
+        for (let i = 2; i <= number; i++) {
+            if (checkPrime(i) == true) {
+                document.write(i + ", ")
+            }
+        }
+    }
+
+    //Bài 6
+    function calSumOfDivisor() {
+        let number = parseInt(prompt("Nhập số"));
+        let sum = 0;
+        for (let i = 0; i < number; i++) {
+            if (number % i == 0) {
+                sum += i;
+                console.log(i);
+                document.write("Ước số: " + i + "<br>")
+            }
+        }
+        document.write("Tổng các ước số: " + sum);
+    }
+
+</script>
+
+</html>
