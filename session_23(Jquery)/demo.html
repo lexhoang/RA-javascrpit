@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="./jquery-3.6.1.js"></script>
+
+    <style>
+        .container {
+            width: 400px;
+        }
+
+        .text {
+            padding: 20px;
+            background-color: #ff006a
+        }
+
+        .btn {
+            margin: 0 auto
+        }
+
+        .btn button {
+            width: 150px;
+            height: 24px;
+        }
+
+        .add-class {
+            background-color: cyan
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p id="text" class="text">Hello, học viên RA!</p>
+        <div class="btn">
+            <button id="btn-click">Click Show__Hide</button>
+            <button id="btn-changeCSS">Change CSS</button>
+            <button id="btn-changeClass">Change Class</button>
+        </div>
+
+        <div>
+            <img id="img" src="./chicken.gif" alt="">
+            <button id="slideUp">Click slide up</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let count = 0;
+    $("#btn-click").click(function () {
+        // $("#text").toggle(); //Mạc định của toggle là ẩn hiện
+        count++;
+        $("#text").hide();
+
+        if (count == 2) {
+            $("#text").show();
+            count = 2;
+        }
+    });
+
+    // $("#btn-changeCSS").click(function () {
+    //     $("#text").css({
+    //         "background-color": "blue",
+    //         "color": "#fff"
+    //     })
+    // })
+
+    $("#btn-changeClass").click(function () {
+        $("#text").toggleClass("add-class")
+    })
+
+    $("#slideUp").on("click", function () {
+        $("#img").fadeToggle(1000)
+        $("#img").slideToggle(3000);
+    })
+
+    function slideUpEnd() {
+        $("#img").slideDown('slow')
+    }
+</script>
+
+</html>
