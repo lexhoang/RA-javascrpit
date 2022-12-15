@@ -25,10 +25,10 @@ a:hover {
 }
 
 .text-optical {
-    position: absolute;
-    top: 60%;
-    left: 5%;
-    transform: translateY(-50%)
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: -18%;
+    transform: translateY(-100%);
 }
 
 
