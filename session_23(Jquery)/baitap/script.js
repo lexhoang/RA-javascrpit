@@ -11,13 +11,24 @@ function renderTable(listTodo) {
         for (let i = 0; i < listTodo.length; i++) {
             data += `
             <tr>
-                <td> ${i + 1} </td>
-                <td> ${listTodo[i]} </td>
-                <td>In progress</td>
-                <td>
-                    <button class="btn-edit" onclick="editTodo(${i})">Edit</button>
-                    <button class="btn-delete" onclick="deleteTodo(${i})">Delete</button>
-                    <button class="btn-finished">Finished</button>
+                <td> ${listTodo[i].id + 1} </td>
+
+                <td class="todoItem">
+                    ${listTodo[i].todoItem}
+                </td>
+
+                <td> ${listTodo[i].status} </td>
+
+                <td class="btn-edit">
+                    <button onclick="editTodo(${listTodo[i].id})">Edit</button>
+                </td>
+
+                <td class="btn-delete">
+                    <button onclick="deleteTodo(${listTodo[i].id})">Delete</button>
+                </td>
+
+                <td class="btn-finished">
+                    <button onclick="finishedTodo(${listTodo[i].id})">Finished</button>
                 </td>
             </tr>
         `
@@ -30,14 +41,21 @@ renderTable(listTodoApp);
 function addTodo() {
     let inpTodo = document.getElementById("inp-todo");
     let dataTodoList = JSON.parse(localStorage.getItem('todoList'));
-
+    if (dataTodoList == null) {
+        dataTodoList = [];
+    }
+    let objectTodo = {
+        id: dataTodoList.length,
+        todoItem: inpTodo.value,
+        status: "In progress"
+    }
     if (dataTodoList == null) {
         let array = [];
-        array.push(inpTodo.value);
+        array.push(objectTodo);
         localStorage.setItem("todoList", JSON.stringify(array));
         inpTodo.value = ""
     } else {
-        dataTodoList.push(inpTodo.value);
+        dataTodoList.push(objectTodo);
         localStorage.setItem("todoList", JSON.stringify(dataTodoList));
         inpTodo.value = ""
     }
@@ -46,32 +64,60 @@ function addTodo() {
 
 function deleteTodo(paramID) {
     let dataTodoList = JSON.parse(localStorage.getItem('todoList'));
-    for (let i = 0; i < dataTodoList.length; i++) {
-        if (i == paramID) {
-            dataTodoList.splice(i, 1);
-        }
+    if (dataTodoList.length > 1) {
+        dataTodoList.splice(paramID, 1);
+        localStorage.setItem("todoList", JSON.stringify(dataTodoList));
+    } else {
+        dataTodoList = [];
+        localStorage.setItem("todoList", JSON.stringify(dataTodoList));
     }
-    localStorage.setItem("todoList", JSON.stringify(dataTodoList));
+
     renderTable(dataTodoList);
 }
-let valueIndex = "";
 
+// let valueIndex = "";
 function editTodo(paramID) {
-    let inpEdit = document.getElementById("inp-edit");
     let dataTodoList = JSON.parse(localStorage.getItem('todoList'));
-    for (let i = 0; i < dataTodoList.length; i++) {
-        if (i == paramID) {
-            inpEdit.value = dataTodoList[paramID];
-            valueIndex = paramID
-        }
-    }
+
+    let todoText = document.querySelectorAll(".todoItem");
+    todoText[paramID].innerHTML = `
+            <input type="text" class="inp-edit" value="${dataTodoList[paramID].todoItem}"
+             onchange="saveTodo(${paramID})"/>
+        `
+
+    // let editTodo = document.querySelectorAll(".editTodo");
+    // editTodo[paramID].innerHTML = `
+    //         <button onclick="saveEdTodo(${paramID})">Save</button>
+    //         `
+    // let inpEdit = document.querySelectorAll(".inp-edit");
+    // inpEdit[paramID].value = dataTodoList[paramID].todoItem
+    // valueIndex = paramID;
 }
 
-function saveTodo() {
-    let inpEdit = document.getElementById("inp-edit");
+function saveTodo(paramID) {
+    console.log(paramID);
     let dataTodoList = JSON.parse(localStorage.getItem('todoList'));
-    dataTodoList[valueIndex] = inpEdit.value;
+
+    let inpEdit = document.getElementsByClassName("inp-edit");
+
+
+    dataTodoList[paramID].todoItem = inpEdit[0].value;
+    console.log(paramID);
+
     localStorage.setItem("todoList", JSON.stringify(dataTodoList));
     renderTable(dataTodoList);
-    inpEdit.value = ""
+    console.log(paramID);
+}
+
+function finishedTodo(paramId) {
+    let dataTodoList = JSON.parse(localStorage.getItem('todoList'));
+    if (dataTodoList[paramId].status == "In progress") {
+        dataTodoList[paramId].status = "finished";
+        localStorage.setItem("todoList", JSON.stringify(dataTodoList));
+    } else {
+        dataTodoList[paramId].status = "In progress";
+        localStorage.setItem("todoList", JSON.stringify(dataTodoList));
+    }
+
+    renderTable(dataTodoList);
 }

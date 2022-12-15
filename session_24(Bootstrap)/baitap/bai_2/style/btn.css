@@ -1,0 +1,55 @@
+.btn-shop {
+    background: rgb(255, 255, 255);
+    color: #000;
+
+}
+
+.btn-film {
+    background: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.btn-gift {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.btn-css {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding: 12px 40px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    border: 2px solid #fff;
+}
+
+.btn-css:focus,
+.btn-css:hover {
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-css:before {
+    content: "";
+    background: #f75700;
+    height: 0;
+    border-radius: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    border-radius: 24px;
+
+}
+
+.btn-css:hover:before {
+    width: 100%;
+    height: 100%;
+}

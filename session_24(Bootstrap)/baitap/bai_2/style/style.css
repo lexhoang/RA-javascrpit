@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-link {
+    margin: 0 50px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+a:hover {
+    border-bottom: 2px solid orangered;
+    color: #000;
+    font-weight: bold;
+}
+
+.optical {
+    position: relative;
+}
+
+.text-optical {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    transform: translateY(-50%)
+}
+
+.optical-2 {
+    position: relative;
+}
+
+.text-optical-2 {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+}
+
+.bg-content {
+    width: 100%;
+    background-color: rgb(232, 232, 232);
+}
+
+.card {
+    transition: calc(0.8s)
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.05)
+}
+
+footer .btn-floating {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+footer .btn-floating i {
+    line-height: 35px;
+}
