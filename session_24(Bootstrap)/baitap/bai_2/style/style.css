@@ -31,15 +31,6 @@ a:hover {
     transform: translateY(-50%)
 }
 
-.optical-2 {
-    position: relative;
-}
-
-.text-optical-2 {
-    position: absolute;
-    bottom: 3%;
-    left: 5%;
-}
 
 .bg-content {
     width: 100%;
