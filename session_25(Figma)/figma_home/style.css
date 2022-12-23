@@ -1,0 +1,675 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-image: url(/Image.png),url(/Decore.png),url(/Ellipse\ 8.png);
+    background-repeat: no-repeat;
+    background-position-x: right,right,left;
+    background-size: 640px,700px 581px,230px;
+    background-position-y: 55px,0px,top;
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 19px 0 0 94px;
+}
+.logo{
+    width: 114px;
+    height: 33px;
+    cursor: pointer;
+}
+nav ul{
+    display: flex;
+    margin: 0 100px 0 0;
+}
+li{
+    list-style: none;
+    margin: 0 0 0 45px;
+    font-size: 17px;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+    color: #212832;
+}
+.sign-up{
+    border: 1px solid;
+    border-radius: 4px;
+    width: 80px;
+    padding: 2px;
+    text-align: center;
+}
+
+#language{
+    width: 80px;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+.menu-btn i{
+    display: none;
+}
+#click{
+    display: none;
+}
+
+li :hover{
+    color: #f8a800;
+}
+/* //////////////////////////////////////////////////////////////// */
+.desc{
+    width: 572px;
+    height: 445px;
+    margin: 129px 0 0 95px;
+}
+.tagline{
+    font-size: 20px;
+    font-weight: bold;
+    color: #DF6951;
+}
+.heading{
+    font-size: 67px;
+    line-height: 65px;
+    color: #181E4B;
+    font-family: Volkhov;
+    margin: 24px 0 0 0;
+    background-image: url(/Decore-1.png);
+    background-repeat: no-repeat;
+    background-position-x: 234px;
+    background-position-y: 54px;
+}
+.description{
+    color: #5E6282;
+    font-size: 16px;
+    font-family: poppins;
+    margin: 30px 0 0 0;
+    width: 450px;
+}
+.btns{
+    display: flex;
+    width: 270px;
+    height: 50px;
+    margin: 34px 0 0 0;
+}
+.find-out-more{
+    width: 110px;
+    height: 40px;
+    background: #fbb319;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.play-demo{
+    margin: -8px 0 0 4px;
+    width: 78px;
+}
+.play{
+    margin: -66px 0 0 70px;
+}
+/* /////////////////////////////////////////////// */
+.services{
+    /* width: 1179px;
+    height: 380px; */
+    margin: 80px auto 60px;
+    background-image: url(/Group\ 4.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 115px;
+}
+.category{
+    text-align: center;
+    font-family: poppins;
+    color: #5E6282;
+}
+.category-title{
+    margin: 10px 0 0 0;
+    text-align: center;
+    font-size: 36px;
+    font-family: volkhov;
+    color: #14183E;
+}
+.flex{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.offer-cards{
+    width: 178px;
+    height: 200px;
+    border-radius: 15px;
+    margin: 40px;
+    cursor: pointer;
+}
+.offer-cards:hover{
+    box-shadow: 0px 0px 10px -3px;
+
+}
+.group-51{
+    width: 100px;
+    height: 78px;
+}
+.png{
+    margin: 4px 0 0 40px;
+}
+.offer-cards-title{
+    text-align: center;
+    font-size: 16px;
+    margin: 9px 0 4px 0;
+    color:#1E1D4C;
+}
+.offer-cards-desc{
+    text-align: center;
+    color: #5E6282;
+    font-size: 13px;
+    padding: 10px;
+    font-family: poppins;
+}
+/* ///////////////////////////////////////////////////////////////////// */
+/* .top-selling{
+    width: 1000px;
+    margin: 0 auto;
+
+} */
+.destinations-cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 45px 0 0 0;
+}
+.destinations-card{
+    width: 200px;
+    height: 310px;
+    border-radius: 15px;
+    margin: 10px 82px;
+}
+.destinations-card:hover{
+    box-shadow: 0px 0px 10px -3px;
+}
+.destinations-image{
+    width: 200px;
+    height: 238px;
+}
+.name-and-price{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 11px 7px;
+    font-family: poppins;
+    color:#5E6282;
+}
+.trip-duration{
+    display: flex;
+    padding: 0 7px;
+    font-family: poppins;
+    color:#5E6282;
+}
+/* /////////////////////////////////////////////////////////////////// */
+
+.booking-info{
+    /* width: 1000px; */
+    margin: 80px auto;
+    background-image: url(/Group\ 589.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: -100px;
+    background-size: 460px;
+}
+.booking-process{
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+.booking{
+    margin: 30px auto;
+}
+.easy-and-fast{
+    font-family: poppins;
+    color: #5E6282;
+    font-size: 18px;
+    font-weight: bold;
+}
+.booking-steps-heading{
+    font-size: 40px;
+    font-family: volkhov;
+    color: #14183E;
+    width: 489px;
+    margin: 10px 0 0 0;
+}
+.booking-steps{
+    width: 260px;
+    height: 60px;
+    margin: 25px 0;
+    display: flex;
+}
+.booking-icons{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.process{
+    margin: 0 0 0 10px;
+    padding: 4px;
+}
+.process h5{
+    font-size: 13px;
+    color: #5E6282;
+}
+.process p{
+    font-size: 10px;
+    color: #5E6282;
+}
+.booking-card{
+    width: 293px;
+    height: 300px;
+    margin: auto;
+    background: #ffff;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px -3px;
+}
+.booking-card-card{
+    width: 260px;
+    height: 120px;
+    border-radius: 20px;
+    margin: 22px auto;
+
+}
+.booking-card-card-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 21px;
+}
+.trip-details{
+    margin: 0 0 0 16px;
+}
+.trip-destination{
+    font-size: 15px;
+}
+.trip-date{
+    font-size: 12px;
+    margin: 10px 0;
+    color: #84829A;
+}
+/* .trip-info{
+
+} */
+.trip-info-icon{
+    width: 10%;
+}
+
+.no-of-people{
+    display: flex;
+    color:#84829A;
+    font-size: 12px;
+}
+.number-of-people{
+    margin: 0 0 0 7px;
+}
+.heart{
+    position: relative;
+    left: 225px;
+    bottom: 20px;
+}
+/* //////////////////////////////////////////////////////////// */
+.feedback-section{
+    /* width: 1004px;
+    height: 220px;
+    margin: 0 auto 30px; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.feed-back{
+    margin: auto auto;
+}
+.subheading{
+    font-family: poppins;
+    color: #5E6282;
+    font-size: 18px;
+    font-weight: bold;
+}
+.feedback-heading{
+    font-size: 40px;
+    font-family: volkhov;
+    color: #14183E;
+    width: 370px;
+    margin: 8px 0 0 0;
+}
+.slider{
+    margin: 40px 0 0 0;
+}
+.feedback-box{
+    width: 430px;
+    height: 190px;
+    margin: 0 auto;
+}
+.feedbacks{
+    width: 306px;
+    height: 107px;
+    margin: 0px auto;
+    position: relative;
+    top: -22px;
+    border-radius: 10px;
+    box-shadow: -2px 6px 19px -12px;
+}
+.feedback{
+    font-size: 11px;
+    font-family: poppins;
+    color: #5E6282;
+    padding: 12px 12px 0;
+}
+.user-info{
+    width: 195px;
+    margin: 10px 0 0 0;
+    padding: 0 12px 0px;
+}
+.user-info p{
+    font-size: 10px;
+    color: #5E6282;
+}
+.up-and-down-arrow{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100px;
+    margin: auto 5px;
+}
+/* /////////////////////////////////////////////////////////////////////// */
+.brands{
+    /* width: 1000px; */
+    /* height: 100px; */
+    margin: 155px auto 24px;
+}
+.brandslogo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.brands-logo{
+    width: 130px;
+    height: 100px;
+    margin: 0 30px 0 0;
+}
+.brand-logo{
+    width: 133px;
+    height: 30px;
+    margin: 30px 30px 30px 0;
+}
+/* //////////////////////////////////////////////////////////////////////////// */
+.subscribe-section{
+    /* width: 1190px; */
+    height: 313px;
+    margin: 0 auto 56px;
+    background-image: url(/Group\ 5.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+}
+.subscribe{
+    border: 1px solid #EEEEF0;
+    width: 639px;
+    height: 215px;
+    margin: 130px auto;
+    border-radius: 70px 15px 15px;
+    background-image: url(/Group\ 42.png),url(/Group\ 42\(1\).png);
+    background-repeat: no-repeat;
+    background-position-x: 10px,right;
+    background-position-y: bottom,top;
+    background-size: 245px,113px;
+    background-color: #EEEEF0;
+}
+.send{
+    position: absolute;
+    margin: -10px 0 0 608px;
+    width: 40px;
+}
+.subscribe h3{
+    font-family: poppins;
+    width: 519px;
+    text-align: center;
+    margin: 20px auto;
+    color: #5E6282;
+    font-size: 20px;
+}
+.email{
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+}
+#your-email{
+    width: 300px;
+    height: 40px;
+    border-radius: 7px;
+    margin: 0 5px 0 0;
+    border: none;
+    padding: 10px;
+}
+.sub-btn{
+    width: 100px;
+    border-radius: 7px;
+    border: none;
+    background: #FF946D;
+    color: wheat;
+}
+/* //////////////////////////////////////////////////////////////// */
+.footer{
+    display: flex;
+    /* width: 1100px;
+    height: 150px; */
+    margin: 0 auto 60px;
+    flex-wrap: wrap;
+}
+.footer-name{
+    margin: 14px auto;
+}
+.footer-name h3{
+    font-size: 30px;
+    font-family: poppins;
+    color:#181E4B;
+}
+.footer-name p{
+    font-size: 12px;
+    width: 241px;
+    font-family: poppins;
+    color:#5E6282;
+    margin: 12px 0 0 0;
+}
+.more-info {
+    display: flex;
+    /* width: 400px; */
+    margin: 0 0 0 30px;
+    flex-wrap: wrap;
+}
+.more-info h4{
+    color:#181E4B;
+    font-family: poppins;
+}
+.company{
+    margin: 20px 0 0 0;
+}
+.footer-company{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0 0 9px;
+}
+.footer-company a{
+    margin: 12px 0 0 -7px;
+    font-size: 12px;
+    color: #5E6282;
+}
+.contact{
+    margin: 20px 0 0 50px;
+}
+.more{
+    margin: 20px 0 0 55px;
+}
+.app-and-social-media {
+    /* width: 215px; */
+    margin: 20px auto;
+}
+.social-media img{
+    width: 50px;
+}
+.app{
+    color: #5E6282;
+    font-family: poppins;
+    text-align: center;
+}
+.apps-links img{
+    width: 80px;
+    height: 30px;
+    margin: 7px 0 0 0;
+}
+.rights{
+    text-align: center;
+    font-family: poppins;
+    color: #5E6282;
+    margin: 0 0 10px 0;
+}
+
+
+/* ///////////////////////media queries/////////////////////////////////// */
+@media (max-width:1000px){
+    nav ul{
+        position: fixed;
+        top: 55px;
+        right: -100%;
+        display: block;
+        background: #ffff;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    #click:checked ~ ul {
+        right: -8%;
+    }
+    #click{
+        display: none;
+    }
+    #click:checked ~ .menu-btn i:before{
+        content:"\f00d";
+    }
+
+    #nav{
+        display: block;
+        margin: 13px;
+        border-radius: 10px;
+    }
+    .menu-btn i{
+        display: block;
+        margin: 3rem 1rem;
+    }
+    nav{
+        margin: -47px 10px 0;
+    }
+    .sign-up{
+        width:100px ;
+    }
+}
+@media (max-width:900px){
+    body{
+        background-size: 466px,353px 413px,230px
+    }
+    .header{
+        margin: 19px 0 0 30px;
+    }
+    .desc{
+        margin: 129px 0 0 30px;
+    }
+    .subscribe{
+        width: 551px;
+        height: 183px;
+    }
+    .send{
+        margin: -10px 0 0 523px;
+    }
+
+}
+@media (max-width:600px){
+    body {
+        background-size: 229px,168px 261px,230px;
+    }
+    .desc {
+        margin: 162px 0 0 30px;
+        width: 311px;
+    }
+    .tagline {
+        font-size: 16px;
+        font-weight: bold;
+        color: #DF6951;
+    }
+    .heading {
+        font-size: 36px;
+        color: #181E4B;
+        line-height: normal;
+        font-family: Volkhov;
+        margin: 24px 0 0 0;
+        background-image: url(/Decore-1.png);
+        background-repeat: no-repeat;
+        background-position-x: 130px;
+        background-position-y: 47px;
+        background-size: 178px;
+    }
+    .description {
+        color: #5E6282;
+        font-size: 16px;
+        font-family: poppins;
+        margin: 30px 0 0 0;
+        width: 311px;
+    }
+    .category-title{
+        font-size: 25px;
+    }
+    .booking{
+        margin: 30px;
+    }
+    .booking-steps-heading{
+        font-size: 27px;
+        width: 300px;
+    }
+    .feedback-heading{
+        font-size:30px;
+        width: 275px;
+    }
+    .feed-back{
+        margin: 30px;
+    }
+    .feedback-box {
+        width: 430px;
+        height: 190px;
+        padding: 0 4px 0 27px;
+    }
+    .feedback-box img{
+        padding: 0 0 5px 0;
+    }
+    .brands-logo {
+    margin: 0 auto;
+   }
+
+    .subscribe {
+        width: 300px;
+        height: 288px;
+        background-size: 183px,92px;
+    }
+    .send {
+        margin: -10px 0 0 270px;
+    }
+    .subscribe h3 {
+        font-family: poppins;
+        width: 300px;
+        text-align: center;
+        margin: 20px auto;
+        color: #5E6282;
+        font-size: 20px;
+        padding: 11px;
+    }
+    .email{
+        padding: 9px;
+    }
+    .footer-name {
+        margin: 14px 0 0 30px;
+    }
+}
